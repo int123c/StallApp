@@ -16,7 +16,6 @@
 		13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD6A1E967BBC00A42732 /* AppDelegate.m */; };
 		13AACD6E1E967BBC00A42732 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD6D1E967BBC00A42732 /* ListViewController.m */; };
 		13AACD711E967BBC00A42732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD6F1E967BBC00A42732 /* Main.storyboard */; };
-		13AACD741E967BBC00A42732 /* Stall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */; };
 		13AACD761E967BBC00A42732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD751E967BBC00A42732 /* Assets.xcassets */; };
 		13AACD791E967BBC00A42732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */; };
 		13AACD841E967BBC00A42732 /* StallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD831E967BBC00A42732 /* StallTests.m */; };
@@ -371,7 +370,6 @@
 				1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */,
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
 				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
-				13AACD741E967BBC00A42732 /* Stall.xcdatamodeld in Sources */,
 				1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */,
 				1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */,
 				13AACD681E967BBC00A42732 /* main.m in Sources */,
