@@ -31,7 +31,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
                  NSString *url = images[@"large"];
                  if (url == nil) { url = images[@"medium"]; }
                  if (url == nil) { url = images[@"small"]; }
-                 [self fetchBookCoverAtURL: url underJSON:json isbn:isbn];
+                 [self fetchBookCoverAtURL:url underJSON:json isbn:isbn];
              }
              
          } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -72,7 +72,9 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 - (void)postSuccessNitificationWithJson:(NSDictionary *)json coverURL:(NSURL *)cover {
     BookValue *value = [[BookValue alloc] initWithJSON:json coverURL:cover.absoluteString];
-    [[NSNotificationCenter defaultCenter] postNotificationName:SUCCESS_ON_FETCH object:value];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SUCCESS_ON_FETCH
+                                                        object:self
+                                                      userInfo:@{@"value" : value}];
 }
 
 - (void)postErrorNotificationWithName:(NSString *)name {

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import "Douban.h"
+#import "BookValue.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +21,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStack];
-    
+    Douban *douban = [[Douban alloc] init];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNewBookFetched:) name:SUCCESS_ON_FETCH object:self];
+    [douban fetchBookValueForISBN:@"9787111128069"];
     return YES;
+}
+
+- (void)onNewBookFetched:(NSNotification *)notification {
+    NSDictionary *userInfo = notification.userInfo;
+    BookValue *newBookValue = userInfo[@"value"];
+    NSLog(@"%@", newBookValue);
 }
 
 
