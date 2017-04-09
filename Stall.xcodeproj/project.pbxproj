@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133712FE1E9A7062006C23B4 /* LoadViewModel.m */; };
 		1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */; };
 		1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBF1E9A2433005ADA05 /* Book+CoreDataProperties.m */; };
 		1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFC81E9A270B005ADA05 /* ListViewModel.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		133712FD1E9A7062006C23B4 /* LoadViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewModel.h; sourceTree = "<group>"; };
+		133712FE1E9A7062006C23B4 /* LoadViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewModel.m; sourceTree = "<group>"; };
 		1368FFBC1E9A2433005ADA05 /* Book+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataClass.h"; sourceTree = "<group>"; };
 		1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+CoreDataClass.m"; sourceTree = "<group>"; };
 		1368FFBE1E9A2433005ADA05 /* Book+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 		1368FFC41E9A2685005ADA05 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				133712FD1E9A7062006C23B4 /* LoadViewModel.h */,
+				133712FE1E9A7062006C23B4 /* LoadViewModel.m */,
 				1368FFC71E9A270B005ADA05 /* ListViewModel.h */,
 				1368FFC81E9A270B005ADA05 /* ListViewModel.m */,
 			);
@@ -371,6 +376,7 @@
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
 				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
 				1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */,
+				133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */,
 				1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */,
 				13AACD681E967BBC00A42732 /* main.m in Sources */,
 			);

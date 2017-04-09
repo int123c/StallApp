@@ -9,9 +9,12 @@
 #import "Douban.h"
 #import <AFNetworking/AFNetworking.h>
 #import "BookValue.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "Book+CoreDataClass.h"
 
 NSString * const ERROR_ON_FETCH = @"ERROR_ON_FETCH";
 NSString * const ERROR_ON_IMAGE_DOWNLOAD = @"ERROR_ON_IMAGE_DOWNLOAD";
+NSString * const ERROR_ON_SAVE = @"ERROR_ON_SAVE";
 NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 @implementation Douban
@@ -23,8 +26,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
     
     [manager GET:url parameters:nil progress:nil
          success:^(NSURLSessionTask *task, id responseObject) {
-             
-             NSLog(@"%@", responseObject);
+
              if ([responseObject isKindOfClass:[NSDictionary class]]) {
                  NSDictionary *json = responseObject;
                  NSDictionary *images = json[@"images"];
@@ -40,7 +42,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 }
 
 - (void)fetchBookCoverAtURL:(NSString *)urlString underJSON:(NSDictionary *)json isbn:(NSString *)isbn {
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -48,7 +50,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
         destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
             
             NSURL *documentsDirectoryURL =
-                [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                [NSFileManager.defaultManager URLForDirectory:NSDocumentDirectory
                                                        inDomain:NSUserDomainMask
                                               appropriateForURL:nil
                                                          create:NO
@@ -72,11 +74,23 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 - (void)postSuccessNitificationWithJson:(NSDictionary *)json coverURL:(NSURL *)cover {
     BookValue *value = [[BookValue alloc] initWithJSON:json coverURL:cover.absoluteString];
-    [[NSNotificationCenter defaultCenter] postNotificationName:SUCCESS_ON_FETCH object:value];
+    Book *newBook = [Book MR_createEntity];
+    
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *context) {
+        [newBook applyBookValue:value];
+    } completion:^(BOOL contextDidSave, NSError *error) {
+        if (error != nil) {
+            [NSNotificationCenter.defaultCenter postNotificationName:ERROR_ON_SAVE object:self];
+            [NSFileManager.defaultManager removeItemAtURL:cover error:nil];
+        } else {
+            [NSNotificationCenter.defaultCenter postNotificationName:SUCCESS_ON_FETCH object:self userInfo:@{@"isbn": newBook.isbn}];
+        }
+    }];
+    
 }
 
 - (void)postErrorNotificationWithName:(NSString *)name {
-    [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:name object:nil];
 }
 
 @end
