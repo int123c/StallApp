@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const ERROR_ON_FETCH;
-extern NSString * const ERROR_ON_IMAGE_DOWNLOAD;
-extern NSString * const SUCCESS_ON_FETCH;
 
 @interface Douban : NSObject
 

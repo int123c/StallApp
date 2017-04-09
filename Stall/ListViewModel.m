@@ -10,8 +10,4 @@
 
 @implementation ListViewModel
 
-- (NSInteger)numberOfBooks {
-    return _bookList.count;
-}
-
 @end
