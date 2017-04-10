@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Book+CoreDataClass.h"
+
+typedef NS_ENUM(NSInteger, Manipulation) {
+    Add,
+    Remove,
+    Edit
+};
 
 @interface ListViewModel : NSObject
 
-@property (nonatomic, copy) NSArray *bookList;
+@property (nonatomic, copy) NSMutableArray *bookList;
+@property (nonatomic, strong) Book *manipulatingBook;
+@property (nonatomic) Manipulation manipulation;
+@property (nonatomic, strong) NSIndexPath *manipulatingIndexPath;
 
 - (NSInteger)numberOfBooks;
 
