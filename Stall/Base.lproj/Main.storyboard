@@ -21,8 +21,21 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUc-52-PjT">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UUc-52-PjT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kHc-y0-H2N"/>
+                            <constraint firstItem="UUc-52-PjT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ky9-h1-xPy"/>
+                            <constraint firstItem="UUc-52-PjT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="oBc-Ic-cJ3"/>
+                            <constraint firstItem="UUc-52-PjT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sTF-jF-9Za"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,7 +141,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgn-JX-9O3">
                                 <rect key="frame" x="-0.5" y="146" width="375" height="375"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qgn-JX-9O3" secondAttribute="height" multiplier="1:1" id="ZI5-6i-YjH"/>
                                 </constraints>
@@ -160,7 +173,7 @@
         <!--Load-->
         <scene sceneID="NqX-Qv-jPE">
             <objects>
-                <viewController title="Load" id="fpk-DO-mJT" sceneMemberID="viewController">
+                <viewController title="Load" id="fpk-DO-mJT" customClass="LoadViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cg4-ta-eJb"/>
                         <viewControllerLayoutGuide type="bottom" id="nBr-vR-w8A"/>
@@ -168,29 +181,40 @@
                     <view key="view" contentMode="scaleToFill" id="axn-vc-OmO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnP-T8-L3q">
+                                <rect key="frame" x="0.0" y="243.5" width="375" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="58F-hh-3UM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkN-Lu-Fgn">
+                                <rect key="frame" x="0.0" y="133.5" width="375" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="LRu-HC-yyW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OkN-Lu-Fgn" firstAttribute="centerX" secondItem="axn-vc-OmO" secondAttribute="centerX" id="3eJ-eg-frK"/>
+                            <constraint firstItem="TnP-T8-L3q" firstAttribute="centerX" secondItem="axn-vc-OmO" secondAttribute="centerX" id="B99-Dt-qsj"/>
+                            <constraint firstItem="OkN-Lu-Fgn" firstAttribute="centerY" secondItem="axn-vc-OmO" secondAttribute="centerY" id="S1N-NZ-mT2"/>
+                            <constraint firstItem="TnP-T8-L3q" firstAttribute="centerY" secondItem="axn-vc-OmO" secondAttribute="centerY" id="fxF-VY-dB8"/>
+                            <constraint firstItem="TnP-T8-L3q" firstAttribute="width" secondItem="axn-vc-OmO" secondAttribute="width" id="sbi-jQ-ku7"/>
+                            <constraint firstItem="OkN-Lu-Fgn" firstAttribute="width" secondItem="axn-vc-OmO" secondAttribute="width" id="xyD-ie-5m5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barcodeView" destination="TnP-T8-L3q" id="K31-kD-V1y"/>
+                        <outlet property="bookView" destination="OkN-Lu-Fgn" id="SBt-Kk-Ue7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHo-pS-JAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="785" y="857"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Di0-NT-O5G">
-            <objects>
-                <viewController id="45p-qg-MMe" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7QO-B5-Ael"/>
-                        <viewControllerLayoutGuide type="bottom" id="HDH-fs-Bp7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3bj-q3-zr5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ocm-0y-vLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>

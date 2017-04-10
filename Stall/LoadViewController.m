@@ -10,6 +10,14 @@
 #import "Douban.h"
 #import "UIAlertController+ErrorAlert.h"
 
+@interface LoadViewController()
+
+@property (weak, nonatomic) IBOutlet UIView *barcodeView;
+@property (weak, nonatomic) IBOutlet UIView *bookView;
+
+
+@end
+
 @implementation LoadViewController
 
 static void * observerContext = &observerContext;
@@ -38,7 +46,10 @@ static void * observerContext = &observerContext;
 
 - (void)setup {
     self.viewModel = [[LoadViewModel alloc] init];
-    [self.viewModel addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:observerContext];
+    [self.viewModel addObserver:self
+                      forKeyPath:@"state"
+                        options:NSKeyValueObservingOptionNew
+                        context:observerContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -62,6 +73,11 @@ static void * observerContext = &observerContext;
             }
             case LoadingViewStateBookNotFound: {
                 UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found."];
+                [self presentViewController:alert animated:YES completion:NULL];
+                break;
+            }
+            case LoadingViewStateExist: {
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book already exist."];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }
