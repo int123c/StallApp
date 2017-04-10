@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListViewModel.h"
 
 @interface ListViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) ListViewModel *viewModel;
 
 @end
 

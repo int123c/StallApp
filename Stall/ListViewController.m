@@ -7,13 +7,12 @@
 //
 
 #import "ListViewController.h"
-#import "ListViewModel.h"
 #import "Douban.h"
+#import "UIAlertController+ErrorAlert.h"
 
 
 @interface ListViewController ()
 
-@property (nonatomic, strong) ListViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -22,22 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewModel = [[ListViewModel alloc] init];
     [self.viewModel loadData];
     [self.collectionView reloadData];
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.viewModel = [[ListViewModel alloc] init];
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
-    }
-    return self;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
 }
 
-- (void)dealloc {
+- (void)viewWillDisappear:(BOOL)animated {
     [NSNotificationCenter.defaultCenter removeObserver:self];
+    [super viewWillDisappear:animated];
 }
 
 - (void)onItemChanged {
@@ -55,13 +52,8 @@
 }
 
 - (void)handleBookNotFound {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NULL message:@"Book not found." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler){
-        
-    }];
-    
-    [alert addAction:ok];
-    [self presentViewController:alert animated:true completion:NULL];
+    UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"Book not found."];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -74,7 +66,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_viewModel numberOfBooks];
+    return [self.viewModel numberOfBooks];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -84,7 +76,7 @@
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // performSegue
+    [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,5 +87,10 @@
     
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+}
 
 @end

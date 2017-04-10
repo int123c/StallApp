@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadViewModel.h"
 
 @interface LoadViewController : UIViewController
+
+@property (nonatomic, strong) LoadViewModel *viewModel;
 
 @end

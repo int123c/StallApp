@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, LoadingViewState) {
+    LoadingViewStateLoading,
+    LoadingViewStateBookNotFound,
+    LoadingViewStateError,
+    LoadingViewStateFinished
+};
+
 @interface LoadViewModel : NSObject
 
 @property (nonatomic, copy) NSString * currentISBN;
+@property (nonatomic) LoadingViewState state;
 
 - (void)fetchBookInfo;
 

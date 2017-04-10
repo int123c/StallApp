@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailViewModel.h"
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) DetailViewModel *viewModel;
 
 @end

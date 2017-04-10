@@ -7,21 +7,74 @@
 //
 
 #import "LoadViewController.h"
-
-@interface LoadViewController ()
-
-@end
+#import "Douban.h"
+#import "UIAlertController+ErrorAlert.h"
 
 @implementation LoadViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+static void * observerContext = &observerContext;
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.viewModel fetchBookInfo];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    self.viewModel = [[LoadViewModel alloc] init];
+    [self.viewModel addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:observerContext];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
+    if (context == observerContext) {
+        
+        switch (self.viewModel.state) {
+            case LoadingViewStateFinished: {
+                // show book
+                break;
+            }
+            case LoadingViewStateLoading: {
+                // show barcode animation
+                break;
+            }
+            case LoadingViewStateError: {
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Error in fetching book data."];
+                [self presentViewController:alert animated:YES completion:NULL];
+                break;
+            }
+            case LoadingViewStateBookNotFound: {
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found."];
+                [self presentViewController:alert animated:YES completion:NULL];
+                break;
+            }
+        }
+        
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.viewModel removeObserver:self forKeyPath:@"state"];
+    [super viewWillDisappear:animated];
 }
 
 /*

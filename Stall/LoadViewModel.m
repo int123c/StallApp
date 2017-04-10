@@ -17,14 +17,14 @@
 }
 
 - (void)handleSuccess:(NSNotification *)notification {
-    
+    self.state = LoadingViewStateFinished;
 }
 
 - (void)handleFailure:(NSNotification *)notification {
     if (notification.name == ERROR_BOOK_NOT_FOUND) {
-        
+        self.state = LoadingViewStateBookNotFound;
     } else {
-        
+        self.state = LoadingViewStateError;
     }
 }
 
@@ -44,6 +44,7 @@
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(handleFailure:)
                                                    name:ERROR_BOOK_NOT_FOUND object:nil];
+        self.state = LoadingViewStateLoading;
     }
     return self;
 }

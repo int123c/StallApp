@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Book+CoreDataClass.h"
 
 @interface DetailViewModel : NSObject
+
+@property (nonatomic, strong) Book * book;
 
 @end

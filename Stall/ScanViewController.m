@@ -9,11 +9,14 @@
 #import "ScanViewController.h"
 #import "ScanViewModel.h"
 #import <MTBBarcodeScanner/MTBBarcodeScanner.h>
+#import "LoadViewController.h"
 
 @interface ScanViewController ()
 
 @property (nonatomic, strong) ScanViewModel *viewModel;
 @property (nonatomic, strong) MTBBarcodeScanner *scanner;
+@property (weak, nonatomic) IBOutlet UIView *scannerView;
+@property (nonatomic, strong) NSString *isbn;
 
 @end
 
@@ -22,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scanner = [[MTBBarcodeScanner alloc] initWithMetadataObjectTypes:@[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code] previewView:self.view];
+    self.scanner = [[MTBBarcodeScanner alloc] initWithMetadataObjectTypes:@[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code] previewView:self.scannerView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,17 +50,19 @@
 }
 
 - (void)presentLoadView {
-    
+    [self performSegueWithIdentifier:@"SHOW_LOAD_VIEW" sender:self];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[LoadViewController class]]) {
+        LoadViewController *loadViewController = segue.destinationViewController;
+        loadViewController.viewModel.currentISBN = self.isbn;
+    }
 }
-*/
+
 
 @end
