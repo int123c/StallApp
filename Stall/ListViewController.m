@@ -13,7 +13,8 @@
 
 @interface ListViewController ()
 
-@property (nonatomic) ListViewModel *viewModel;
+@property (nonatomic, strong) ListViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -23,7 +24,7 @@ static int privateKVOContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (instancetype)init {
