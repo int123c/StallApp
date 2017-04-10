@@ -7,8 +7,13 @@
 //
 
 #import "ScanViewController.h"
+#import "ScanViewModel.h"
+#import <MTBBarcodeScanner/MTBBarcodeScanner.h>
 
 @interface ScanViewController ()
+
+@property (nonatomic, strong) ScanViewModel *viewModel;
+@property (nonatomic, strong) MTBBarcodeScanner *scanner;
 
 @end
 
@@ -16,12 +21,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.scanner = [[MTBBarcodeScanner alloc] initWithMetadataObjectTypes:@[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code] previewView:self.view];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [MTBBarcodeScanner requestCameraPermissionWithSuccess:^(BOOL success) {
+        if (success) {
+            NSError *error = nil;
+            [self.scanner startScanningWithResultBlock:^(NSArray *codes) {
+                AVMetadataMachineReadableCodeObject *code = [codes firstObject];
+                NSLog(@"Found code: %@", code.stringValue);
+                [self.scanner stopScanning];
+                
+                __weak ScanViewController *weakSelf = self;
+                [weakSelf presentLoadView];
+            } error:&error];
+            
+        } else {
+            // The user denied access to the camera
+        }
+    }];
+}
+
+- (void)presentLoadView {
+    
 }
 
 /*
