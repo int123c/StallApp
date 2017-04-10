@@ -55,7 +55,13 @@
 }
 
 - (void)handleBookNotFound {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NULL message:@"Book not found." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler){
+        
+    }];
     
+    [alert addAction:ok];
+    [self presentViewController:alert animated:true completion:NULL];
 }
 
 #pragma mark - UICollectionViewDataSource
