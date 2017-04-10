@@ -30,33 +30,35 @@
     }
 }
 
+- (void)setupObservers {
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleSuccess:)
+                                               name:SUCCESS_ON_FETCH object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleFailure:)
+                                               name:ERROR_ON_FETCH object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleFailure:)
+                                               name:ERROR_ON_IMAGE_DOWNLOAD object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleFailure:)
+                                               name:ERROR_BOOK_NOT_FOUND object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleFailure:)
+                                               name:ERROR_BOOK_ALREADY_EXIST object:nil];
+}
+
+- (void)removeObservers {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(handleSuccess:)
-                                                   name:SUCCESS_ON_FETCH object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(handleFailure:)
-                                                   name:ERROR_ON_FETCH object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(handleFailure:)
-                                                   name:ERROR_ON_IMAGE_DOWNLOAD object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(handleFailure:)
-                                                   name:ERROR_BOOK_NOT_FOUND object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(handleFailure:)
-                                                   name:ERROR_BOOK_ALREADY_EXIST object:nil];
         self.state = LoadingViewStateLoading;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 @end

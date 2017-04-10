@@ -23,4 +23,7 @@ typedef NS_ENUM(NSInteger, LoadingViewState) {
 
 - (void)fetchBookInfo;
 
+- (void)setupObservers;
+- (void)removeObservers;
+
 @end

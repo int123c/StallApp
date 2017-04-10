@@ -22,6 +22,14 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
     self.bookList = [[Book MR_findAll] mutableCopy];
 }
 
+- (void)setupObservers {
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNewItemFetched:) name:SUCCESS_ON_FETCH object:NULL];
+}
+
+- (void)removeObservers {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
 - (void)onNewItemFetched:(NSNotification *)notification {
     NSString *isbn = notification.userInfo[@"isbn"];
     Book *newBook = [Book MR_findFirstByAttribute:@"isbn" withValue:isbn];
@@ -32,25 +40,12 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
     [NSNotificationCenter.defaultCenter postNotificationName:ITEM_CHANGED object:self];
 }
 
-- (void)removeBooksAtIndexPath:(NSIndexSet *)indexSet {
+- (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
     [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
         Book *b = [self.bookList objectAtIndex:idx];
         [b MR_deleteEntity];
     }];
     [self.bookList removeObjectsAtIndexes:indexSet];
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self != NULL) {
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNewItemFetched:) name:SUCCESS_ON_FETCH object:NULL];
-    }
-    
-    return self;
-}
-
-- (void)dealloc {
-    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 @end

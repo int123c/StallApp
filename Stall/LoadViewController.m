@@ -22,34 +22,23 @@
 
 static void * observerContext = &observerContext;
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.viewModel = [[LoadViewModel alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.viewModel addObserver:self
+                     forKeyPath:@"state"
+                        options:NSKeyValueObservingOptionNew
+                        context:observerContext];
+    [self.viewModel setupObservers];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.viewModel fetchBookInfo];
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (void)setup {
-    self.viewModel = [[LoadViewModel alloc] init];
-    [self.viewModel addObserver:self
-                      forKeyPath:@"state"
-                        options:NSKeyValueObservingOptionNew
-                        context:observerContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -90,6 +79,7 @@ static void * observerContext = &observerContext;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.viewModel removeObserver:self forKeyPath:@"state"];
+    [self.viewModel removeObservers];
     [super viewWillDisappear:animated];
 }
 

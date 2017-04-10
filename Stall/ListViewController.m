@@ -14,6 +14,7 @@
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableIndexSet *selectedBookIndexSet;
 
 @end
 
@@ -30,10 +31,12 @@
     [super viewWillAppear:animated];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
+    [self.viewModel setupObservers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [NSNotificationCenter.defaultCenter removeObserver:self];
+    [self.viewModel removeObservers];
     [super viewWillDisappear:animated];
 }
 
@@ -80,11 +83,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self.selectedBookIndexSet addIndex:indexPath.row];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self.selectedBookIndexSet removeIndex:indexPath.row];
 }
 
 #pragma mark - Navigation

@@ -24,7 +24,12 @@ extern NSString * const ITEM_CHANGED;
 @property (nonatomic) Manipulation manipulation;
 @property (nonatomic, strong) NSIndexPath *manipulatingIndexPath;
 
+
 - (NSInteger)numberOfBooks;
 - (void)loadData;
+- (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet;
+
+- (void)setupObservers;
+- (void)removeObservers;
 
 @end
