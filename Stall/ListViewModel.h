@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, Manipulation) {
     Edit
 };
 
+extern NSString * const ITEM_CHANGED;
+
 @interface ListViewModel : NSObject
 
 @property (nonatomic, copy) NSMutableArray *bookList;
@@ -23,5 +25,6 @@ typedef NS_ENUM(NSInteger, Manipulation) {
 @property (nonatomic, strong) NSIndexPath *manipulatingIndexPath;
 
 - (NSInteger)numberOfBooks;
+- (void)loadData;
 
 @end

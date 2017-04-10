@@ -20,49 +20,57 @@
 
 @implementation ListViewController
 
-static int privateKVOContext;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.viewModel loadData];
+    [self.collectionView reloadData];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _viewModel = [[ListViewModel alloc] init];
-        [_viewModel addObserver:self
-                     forKeyPath:@"manipulatingBook"
-                        options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
-                        context:&privateKVOContext];
+        self.viewModel = [[ListViewModel alloc] init];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
     }
     return self;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &privateKVOContext) {
-        
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+- (void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)onItemChanged {
+    switch (self.viewModel.manipulation) {
+        case Add:
+            [self.collectionView insertItemsAtIndexPaths:@[self.viewModel.manipulatingIndexPath]];
+            break;
+        case Edit:
+            [self.collectionView reloadItemsAtIndexPaths:@[self.viewModel.manipulatingIndexPath]];
+            break;
+        case Remove:
+            [self.collectionView deleteItemsAtIndexPaths:@[self.viewModel.manipulatingIndexPath]];
+            break;
     }
 }
 
-- (void)updateUI {
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - UICollectionViewDataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return NULL;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"asd" forIndexPath:indexPath];
+    Book *displayingBook = self.viewModel.bookList[indexPath.row];
+    
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [_viewModel numberOfBooks];
 }
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // performSegue
