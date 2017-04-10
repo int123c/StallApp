@@ -13,6 +13,7 @@
 		1337130E1E9B559C006C23B4 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337130D1E9B559C006C23B4 /* LoadViewController.m */; };
 		133713111E9B55A4006C23B4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713101E9B55A4006C23B4 /* DetailViewController.m */; };
 		133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713131E9B55B9006C23B4 /* DetailViewModel.m */; };
+		133713171E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */; };
 		1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */; };
 		1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBF1E9A2433005ADA05 /* Book+CoreDataProperties.m */; };
 		1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFC81E9A270B005ADA05 /* ListViewModel.m */; };
@@ -51,6 +52,8 @@
 		133713101E9B55A4006C23B4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		133713121E9B55B9006C23B4 /* DetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewModel.h; sourceTree = "<group>"; };
 		133713131E9B55B9006C23B4 /* DetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewModel.m; sourceTree = "<group>"; };
+		133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+ErrorAlert.m"; sourceTree = "<group>"; };
+		133713181E9BCB00006C23B4 /* UIAlertController+ErrorAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+ErrorAlert.h"; sourceTree = "<group>"; };
 		1368FFBC1E9A2433005ADA05 /* Book+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataClass.h"; sourceTree = "<group>"; };
 		1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+CoreDataClass.m"; sourceTree = "<group>"; };
 		1368FFBE1E9A2433005ADA05 /* Book+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				1337130D1E9B559C006C23B4 /* LoadViewController.m */,
 				1337130F1E9B55A4006C23B4 /* DetailViewController.h */,
 				133713101E9B55A4006C23B4 /* DetailViewController.m */,
+				133713181E9BCB00006C23B4 /* UIAlertController+ErrorAlert.h */,
+				133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				13AACD6E1E967BBC00A42732 /* ListViewController.m in Sources */,
 				133713081E9B4686006C23B4 /* ScanViewController.m in Sources */,
 				13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */,
+				133713171E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m in Sources */,
 				133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */,
 				1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */,
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
