@@ -12,6 +12,7 @@ extern NSString * const ERROR_ON_FETCH;
 extern NSString * const ERROR_ON_IMAGE_DOWNLOAD;
 extern NSString * const SUCCESS_ON_FETCH;
 extern NSString * const ERROR_ON_SAVE;
+extern NSString * const ERROR_BOOK_NOT_FOUND;
 
 @interface Douban : NSObject
 

@@ -15,6 +15,7 @@
 NSString * const ERROR_ON_FETCH = @"ERROR_ON_FETCH";
 NSString * const ERROR_ON_IMAGE_DOWNLOAD = @"ERROR_ON_IMAGE_DOWNLOAD";
 NSString * const ERROR_ON_SAVE = @"ERROR_ON_SAVE";
+NSString * const ERROR_BOOK_NOT_FOUND = @"ERROR_BOOK_NOT_FOUND";
 NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 @implementation Douban
@@ -29,6 +30,13 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
              if ([responseObject isKindOfClass:[NSDictionary class]]) {
                  NSDictionary *json = responseObject;
+                 
+                 NSNumber *errorCode = json[@"code"];
+                 if (errorCode.integerValue == 6000) {
+                     [self postErrorNotificationWithName:ERROR_BOOK_NOT_FOUND];
+                     return;
+                 }
+                 
                  NSDictionary *images = json[@"images"];
                  NSString *url = images[@"large"];
                  if (url == nil) { url = images[@"medium"]; }

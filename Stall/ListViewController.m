@@ -8,7 +8,7 @@
 
 #import "ListViewController.h"
 #import "ListViewModel.h"
-
+#import "Douban.h"
 
 
 @interface ListViewController ()
@@ -31,6 +31,7 @@
     if (self) {
         self.viewModel = [[ListViewModel alloc] init];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
     }
     return self;
 }
@@ -51,6 +52,10 @@
             [self.collectionView deleteItemsAtIndexPaths:@[self.viewModel.manipulatingIndexPath]];
             break;
     }
+}
+
+- (void)handleBookNotFound {
+    
 }
 
 #pragma mark - UICollectionViewDataSource
