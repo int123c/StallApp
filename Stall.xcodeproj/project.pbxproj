@@ -136,12 +136,12 @@
 		1368FFC41E9A2685005ADA05 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				133712FD1E9A7062006C23B4 /* LoadViewModel.h */,
-				133712FE1E9A7062006C23B4 /* LoadViewModel.m */,
 				1368FFC71E9A270B005ADA05 /* ListViewModel.h */,
 				1368FFC81E9A270B005ADA05 /* ListViewModel.m */,
 				133713091E9B4695006C23B4 /* ScanViewModel.h */,
 				1337130A1E9B4695006C23B4 /* ScanViewModel.m */,
+				133712FD1E9A7062006C23B4 /* LoadViewModel.h */,
+				133712FE1E9A7062006C23B4 /* LoadViewModel.m */,
 				133713121E9B55B9006C23B4 /* DetailViewModel.h */,
 				133713131E9B55B9006C23B4 /* DetailViewModel.m */,
 			);
