@@ -16,11 +16,17 @@ NSString * const ERROR_ON_FETCH = @"ERROR_ON_FETCH";
 NSString * const ERROR_ON_IMAGE_DOWNLOAD = @"ERROR_ON_IMAGE_DOWNLOAD";
 NSString * const ERROR_ON_SAVE = @"ERROR_ON_SAVE";
 NSString * const ERROR_BOOK_NOT_FOUND = @"ERROR_BOOK_NOT_FOUND";
+NSString * const ERROR_BOOK_ALREADY_EXIST = @"ERROR_BOOK_ALREADY_EXIST";
 NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 @implementation Douban
 
 - (void)fetchBookValueForISBN:(NSString *)isbn {
+    if ([self isbnAlreadyExist:isbn]) {
+        [NSNotificationCenter.defaultCenter postNotificationName:ERROR_BOOK_ALREADY_EXIST object:self];
+        return;
+    }
+    
     NSString *url = [NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/:%@", isbn];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -47,6 +53,11 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
          } failure:^(NSURLSessionTask *operation, NSError *error) {
              [self postErrorNotificationWithName:ERROR_ON_FETCH];
          }];
+}
+
+- (BOOL)isbnAlreadyExist:(NSString *)isbn {
+    Book *exist = [Book MR_findFirstByAttribute:@"isbn" withValue:isbn];
+    return exist != NULL;
 }
 
 - (void)fetchBookCoverAtURL:(NSString *)urlString underJSON:(NSDictionary *)json isbn:(NSString *)isbn {

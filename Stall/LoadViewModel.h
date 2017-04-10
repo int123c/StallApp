@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger, LoadingViewState) {
     LoadingViewStateLoading,
     LoadingViewStateBookNotFound,
     LoadingViewStateError,
-    LoadingViewStateFinished
+    LoadingViewStateFinished,
+    LoadingViewStateExist
 };
 
 @interface LoadViewModel : NSObject

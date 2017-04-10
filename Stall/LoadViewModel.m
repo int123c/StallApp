@@ -23,7 +23,9 @@
 - (void)handleFailure:(NSNotification *)notification {
     if (notification.name == ERROR_BOOK_NOT_FOUND) {
         self.state = LoadingViewStateBookNotFound;
-    } else {
+    } else if (notification.name == ERROR_BOOK_ALREADY_EXIST) {
+        self.state = LoadingViewStateExist;
+    }else {
         self.state = LoadingViewStateError;
     }
 }
@@ -44,6 +46,9 @@
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(handleFailure:)
                                                    name:ERROR_BOOK_NOT_FOUND object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(handleFailure:)
+                                                   name:ERROR_BOOK_ALREADY_EXIST object:nil];
         self.state = LoadingViewStateLoading;
     }
     return self;
