@@ -24,7 +24,7 @@ static void * observerContext = &observerContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [[LoadViewModel alloc] init];
+    self.viewModel = [LoadViewModel new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

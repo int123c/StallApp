@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [[ListViewModel alloc] init];
+    self.viewModel = [ListViewModel new];
     [self.viewModel loadData];
     [self.collectionView reloadData];
 }

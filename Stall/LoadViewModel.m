@@ -12,8 +12,8 @@
 @implementation LoadViewModel
 
 - (void)fetchBookInfo {
-    Douban *douban = [[Douban alloc] init];
-    [douban fetchBookValueForISBN:_currentISBN];
+    Douban *douban = [Douban new];
+    [douban fetchBookValueForISBN:self.currentISBN];
 }
 
 - (void)handleSuccess:(NSNotification *)notification {

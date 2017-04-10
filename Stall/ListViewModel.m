@@ -22,6 +22,16 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
     self.bookList = [[Book MR_findAll] mutableCopy];
 }
 
+- (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
+    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
+        Book *b = [self.bookList objectAtIndex:idx];
+        [b MR_deleteEntity];
+    }];
+    [self.bookList removeObjectsAtIndexes:indexSet];
+}
+
+#pragma mark - Observing
+
 - (void)setupObservers {
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNewItemFetched:) name:SUCCESS_ON_FETCH object:NULL];
 }
@@ -38,14 +48,6 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
     self.manipulatingIndexPath = [[NSIndexPath alloc] initWithIndex:0];
     self.manipulatingBook = newBook;
     [NSNotificationCenter.defaultCenter postNotificationName:ITEM_CHANGED object:self];
-}
-
-- (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
-    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
-        Book *b = [self.bookList objectAtIndex:idx];
-        [b MR_deleteEntity];
-    }];
-    [self.bookList removeObjectsAtIndexes:indexSet];
 }
 
 @end

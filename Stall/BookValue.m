@@ -16,7 +16,7 @@
     if (self != nil) {
         NSString *title = json[@"title"];
         
-        NSDate *instockDate = [[NSDate alloc] init];
+        NSDate *instockDate = [NSDate new];
         
         float rating = 0;
         id responseRating = json[@"rating"];
@@ -31,7 +31,7 @@
         NSArray *authorArray = json[@"author"];
         NSString *authors = [authorArray componentsJoinedByString:@", "];
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
         dateFormatter.dateFormat = @"yyyy-M";
         NSDate *pubdate = [dateFormatter dateFromString:json[@"pubdate"]];
         
