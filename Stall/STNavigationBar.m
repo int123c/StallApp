@@ -11,10 +11,6 @@
 @interface STNavigationBar()
 
 @property (strong, nonatomic) IBInspectable UILabel *titleLabel;
-@property (strong, nonatomic, readonly) UIControl *leftActionView;
-@property (strong, nonatomic, readonly) UIControl *rightActionView;
-@property (nonatomic, copy, readonly) void (^leftAction)(void);
-@property (nonatomic, copy, readonly) void (^rightAction)(void);
 
 @end
 

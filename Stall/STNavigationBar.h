@@ -11,4 +11,7 @@
 IB_DESIGNABLE
 @interface STNavigationBar : UIView
 
+@property (strong, nonatomic) UIControl *leftActionView;
+@property (strong, nonatomic) UIControl *rightActionView;
+
 @end

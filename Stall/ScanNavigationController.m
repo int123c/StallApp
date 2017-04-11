@@ -8,10 +8,12 @@
 
 #import "ScanNavigationController.h"
 #import "STNavigationBar.h"
+#import "STBackButton.h"
 
 @interface ScanNavigationController ()
 
 @property (strong, nonatomic) STNavigationBar *naviBar;
+@property (strong, nonatomic) STBackButton *backButton;
 
 @end
 
@@ -28,7 +30,8 @@
     [[self.naviBar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
     [[self.naviBar.heightAnchor constraintEqualToConstant:44] setActive:YES];
     
-    
+    self.backButton = [STBackButton new];
+    self.naviBar.leftActionView = self.backButton;
 }
 
 /*
