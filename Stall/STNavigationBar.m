@@ -28,6 +28,14 @@
     [[self.titleLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
 }
 
+- (void)setTitle:(NSString *)title {
+    _titleLabel.text = title;
+}
+
+- (NSString *)title {
+    return _titleLabel.text;
+}
+
 - (void)setLeftActionView:(UIControl *)leftActionView {
     [_leftActionView removeFromSuperview];
     _leftActionView = leftActionView;

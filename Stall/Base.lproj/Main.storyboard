@@ -119,6 +119,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="0eL-cA-I64" id="vYg-gR-whI"/>
+                        <outlet property="naviBar" destination="U2Y-ao-X2C" id="Ihq-n1-80J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2t-c6-Aeq" userLabel="First Responder" sceneMemberID="firstResponder"/>

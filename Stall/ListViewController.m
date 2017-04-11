@@ -9,6 +9,9 @@
 #import "ListViewController.h"
 #import "Douban.h"
 #import "UIAlertController+ErrorAlert.h"
+#import "STBarcodeButton.h"
+#import "STTrashBinButton.h"
+#import "STNavigationBar.h"
 
 
 @interface ListViewController ()
@@ -16,29 +19,53 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableIndexSet *selectedBookIndexSet;
 
+@property (weak, nonatomic) IBOutlet STNavigationBar *naviBar;
+
+@property (strong, nonatomic) UIButton *doneButton;
+@property (strong, nonatomic) STBarcodeButton *barcodeButton;
+@property (strong, nonatomic) STTrashBinButton *trashBinButton;
+
 @end
 
 @implementation ListViewController
+
+static void * observerContext = &observerContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewModel = [ListViewModel new];
     [self.viewModel loadData];
     [self.collectionView reloadData];
+    
+    [self setupNavigationBarToNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
+    [self.selectedBookIndexSet addObserver:self forKeyPath:@"count" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:observerContext];
     [self.viewModel setupObservers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [NSNotificationCenter.defaultCenter removeObserver:self];
     [self.viewModel removeObservers];
+    [self.selectedBookIndexSet removeObserver:self forKeyPath:@"count"];
     [super viewWillDisappear:animated];
 }
+
+- (void)setupNavigationBarToNormal {
+    self.naviBar.rightActionView = self.doneButton;
+    self.naviBar.title = @"Selected";
+}
+
+- (void)setupNavigationBarToSelection {
+    self.naviBar.rightActionView = self.barcodeButton;
+    self.naviBar.title = @"Stall";
+}
+
+#pragma mark - Observation
 
 - (void)onItemChanged {
     switch (self.viewModel.manipulation) {
@@ -57,6 +84,23 @@
 - (void)handleBookNotFound {
     UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"Book not found." completion:NULL];
     [self presentViewController:alert animated:YES completion:NULL];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == observerContext) {
+        
+        if (object == self.selectedBookIndexSet) {
+            if (change[NSKeyValueChangeNewKey] == 0 && change[NSKeyValueChangeOldKey] > 0) {
+                [self setupNavigationBarToNormal];
+            } else if (change[NSKeyValueChangeNewKey] > 0 && change[NSKeyValueChangeOldKey] == 0) {
+                [self setupNavigationBarToSelection];
+            }
+        }
+        
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
