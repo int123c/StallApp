@@ -6,18 +6,18 @@
 //  Copyright © 2017 Inti Guo. All rights reserved.
 //
 
-#import "STVectorButton.h"
+#import "STButton.h"
 
-@interface STVectorButton()
+@interface STButton()
 
 @property (strong, nonatomic) UIImageView *icon;
 
 @end
 
-@implementation STVectorButton
+@implementation STButton
 
 + (instancetype)buttonWithVectorIconFileName:(NSString *)name frame:(CGRect)frame {
-    STVectorButton *button = [[STVectorButton alloc] initWithFrame:CGRectZero];
+    STButton *button = [[STButton alloc] initWithFrame:CGRectZero];
     button.fileName = name;
     
     UIImage *i = [UIImage imageNamed:name];

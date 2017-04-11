@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STVectorButton : UIControl
+@interface STButton : UIControl
 
 @property (strong, nonatomic) NSString * fileName;
 
