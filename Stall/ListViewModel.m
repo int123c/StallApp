@@ -15,11 +15,13 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
 @implementation ListViewModel
 
 - (NSInteger)numberOfBooks {
-    return _bookList.count;
+    return self.bookList.count;
 }
 
 - (void)loadData {
     self.bookList = [[Book MR_findAll] mutableCopy];
+    if (self.bookList == NULL) { self.bookList = [NSMutableArray new]; }
+    NSLog(@"%lu book found", (unsigned long)self.bookList.count);
 }
 
 - (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
@@ -44,8 +46,9 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
     NSString *isbn = notification.userInfo[@"isbn"];
     Book *newBook = [Book MR_findFirstByAttribute:@"isbn" withValue:isbn];
     [self.bookList insertObject:newBook atIndex:0];
+    NSLog(@"%lu book found", (unsigned long)self.bookList.count);
     self.manipulation = Add;
-    self.manipulatingIndexPath = [[NSIndexPath alloc] initWithIndex:0];
+    self.manipulatingIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     self.manipulatingBook = newBook;
     [NSNotificationCenter.defaultCenter postNotificationName:ITEM_CHANGED object:self];
 }

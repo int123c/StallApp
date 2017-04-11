@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-cA-I64">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-cA-I64">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iR9-CO-ptM">
@@ -84,7 +84,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BOOK_CELL" id="clM-qD-Cax">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BOOK_CELL" id="clM-qD-Cax" customClass="BookCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="171"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -98,10 +98,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2Y-ao-X2C" customClass="STNavigationBar">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="FAL-kS-5ke"/>
+                                    <constraint firstAttribute="height" constant="64" id="FAL-kS-5ke"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,7 +109,7 @@
                         <constraints>
                             <constraint firstItem="U2Y-ao-X2C" firstAttribute="width" secondItem="0c0-Ic-Por" secondAttribute="width" id="5Lk-6X-sfQ"/>
                             <constraint firstItem="0eL-cA-I64" firstAttribute="centerX" secondItem="0c0-Ic-Por" secondAttribute="centerX" id="Enh-VK-gXv"/>
-                            <constraint firstItem="U2Y-ao-X2C" firstAttribute="top" secondItem="frc-1a-otd" secondAttribute="bottom" id="Fgb-GE-JTs"/>
+                            <constraint firstItem="U2Y-ao-X2C" firstAttribute="top" secondItem="frc-1a-otd" secondAttribute="bottom" constant="-20" id="b1a-T1-3mb"/>
                             <constraint firstItem="U2Y-ao-X2C" firstAttribute="centerX" secondItem="0c0-Ic-Por" secondAttribute="centerX" id="ejg-nk-gZ3"/>
                             <constraint firstItem="0eL-cA-I64" firstAttribute="width" secondItem="0c0-Ic-Por" secondAttribute="width" id="iGZ-Dg-7OD"/>
                             <constraint firstItem="0eL-cA-I64" firstAttribute="height" secondItem="0c0-Ic-Por" secondAttribute="height" id="kpf-PI-Chy"/>

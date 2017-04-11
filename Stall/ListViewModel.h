@@ -19,7 +19,7 @@ extern NSString * const ITEM_CHANGED;
 
 @interface ListViewModel : NSObject
 
-@property (nonatomic, copy) NSMutableArray *bookList;
+@property (nonatomic, strong) NSMutableArray *bookList;
 @property (nonatomic, strong) Book *manipulatingBook;
 @property (nonatomic) Manipulation manipulation;
 @property (nonatomic, strong) NSIndexPath *manipulatingIndexPath;

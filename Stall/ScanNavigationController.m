@@ -28,7 +28,7 @@
     [[self.naviBar.topAnchor constraintEqualToAnchor:self.view.topAnchor] setActive:YES];
     [[self.naviBar.widthAnchor constraintEqualToAnchor:self.view.widthAnchor] setActive:YES];
     [[self.naviBar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
-    [[self.naviBar.heightAnchor constraintEqualToConstant:44] setActive:YES];
+    [[self.naviBar.heightAnchor constraintEqualToConstant:64] setActive:YES];
     
     self.backButton = [STBackButton new];
     self.naviBar.leftActionView = self.backButton;

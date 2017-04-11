@@ -36,37 +36,45 @@ static void * observerContext = &observerContext;
 
 - (void)setup {
     self.bookLayer = [CALayer new];
-    self.bookLayer.frame = self.layer.bounds;
-    self.bookLayer.shadowColor = [[UIColor blackColor] CGColor];
+    self.bookLayer.frame = CGRectZero;
+    self.bookLayer.shadowColor = [[UIColor colorWithRed:160.0/255 green:160.0/255 blue:160.0/255 alpha:0.5] CGColor];
     self.bookLayer.shadowOffset = CGSizeMake(-1, 3);
-    self.bookLayer.shadowRadius = 2;
+    self.bookLayer.shadowRadius = 4;
+    self.bookLayer.shadowOpacity = 1;
+    self.bookLayer.backgroundColor = [[UIColor greenColor] CGColor];
     [self.layer addSublayer:self.bookLayer];
     
     self.cropLayer = [CAShapeLayer new];
+    self.cropLayer.frame = CGRectZero;
     [self.bookLayer setMask:self.cropLayer];
     [self.bookLayer setMasksToBounds:YES];
     
     self.coverLayer = [CALayer new];
-    self.coverLayer.frame = self.bounds;
+    self.coverLayer.frame = CGRectZero;
+    self.coverLayer.backgroundColor = [[[UIColor redColor] colorWithAlphaComponent:0.5] CGColor];
     [self.bookLayer addSublayer:self.coverLayer];
     
     self.highlightLayer = [CALayer new];
+    self.highlightLayer.frame = CGRectZero;
     self.highlightLayer.backgroundColor = ([[UIColor colorWithWhite:1 alpha:0.4] CGColor]);
     [self.bookLayer addSublayer:self.highlightLayer];
     
     self.darkenLayer = [CAGradientLayer new];
+    self.darkenLayer.frame = CGRectZero;
     self.darkenLayer.colors = @[[UIColor colorWithWhite:0 alpha:0.1], [UIColor colorWithWhite:0 alpha:30]];
     self.darkenLayer.startPoint = CGPointMake(0, 0);
     self.darkenLayer.endPoint = CGPointMake(1, 1);
     [self.bookLayer addSublayer:self.darkenLayer];
     
     self.reflectionLayer = [CAGradientLayer new];
+    self.reflectionLayer.frame = CGRectZero;
     self.reflectionLayer.colors = @[[UIColor colorWithWhite:0.8 alpha:0.18], [UIColor colorWithWhite:1 alpha:0.3]];
     self.reflectionLayer.startPoint = CGPointMake(0, 0.5);
     self.reflectionLayer.endPoint = CGPointMake(1, 0.3);
     [self.bookLayer addSublayer:self.reflectionLayer];
     
     self.innerShadowLayer = [CAGradientLayer new];
+    self.innerShadowLayer.frame = CGRectZero;
     self.innerShadowLayer.colors = @[[UIColor colorWithWhite:0 alpha:0], [UIColor colorWithWhite:0 alpha:0.1]];
     self.innerShadowLayer.startPoint = CGPointMake(0, 0);
     self.innerShadowLayer.endPoint = CGPointMake(1, 1);
@@ -84,9 +92,9 @@ static void * observerContext = &observerContext;
     
     CGSize coverSize = self.cover.size;
     CGSize wrapperSize = self.frame.size;
-    CGFloat ratio = MIN(coverSize.width / wrapperSize.width, coverSize.height / wrapperSize.height);
+    CGFloat ratio = MIN(wrapperSize.width / coverSize.width, wrapperSize.height / coverSize.height);
     coverSize = CGSizeMake(coverSize.width * ratio, coverSize.height * ratio);
-    
+    UIImage *new = [UIImage imageWithCGImage:[self.cover CGImage] scale:ratio orientation:UIImageOrientationUp];
     // set bookLayer
     CGFloat bookX = (wrapperSize.width - coverSize.width) / 2;
     CGFloat bookY = (wrapperSize.height - coverSize.height) / 2;
@@ -95,7 +103,19 @@ static void * observerContext = &observerContext;
     
     // set coverLayer
     self.coverLayer.frame = CGRectMake(0, 0, coverSize.width, coverSize.height);
-    self.coverLayer.contents = (id)self.cover;
+    self.cropLayer.frame = CGRectMake(0, 0, coverSize.width, coverSize.height);
+    UIBezierPath *path = [UIBezierPath new];
+    [path addArcWithCenter:CGPointMake(3, 3) radius:3 startAngle:M_PI
+                  endAngle:M_PI*3/2 clockwise:YES];
+    [path addArcWithCenter:CGPointMake(coverSize.width-1, 1) radius:1 startAngle:M_PI*3/2
+                  endAngle:0 clockwise:YES];
+    [path addArcWithCenter:CGPointMake(coverSize.width-1, coverSize.height-1) radius:1 startAngle:0
+                  endAngle:M_PI/2 clockwise:YES];
+    [path addArcWithCenter:CGPointMake(3, coverSize.height-3) radius:3 startAngle:M_PI/2
+                  endAngle:M_PI clockwise:YES];
+    self.cropLayer.path = [path CGPath];
+    self.bookLayer.shadowPath = [path CGPath];
+    self.coverLayer.contents = (id)new.CGImage;
     
     // set textures
     self.highlightLayer.frame = CGRectMake(3, 0, 2, coverSize.height);

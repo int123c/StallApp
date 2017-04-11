@@ -11,6 +11,7 @@
 #import "UIAlertController+ErrorAlert.h"
 #import "STNavigationBar.h"
 #import "STButton.h"
+#import "BookCollectionViewCell.h"
 
 
 typedef NS_ENUM(NSInteger, ListViewState) {
@@ -42,6 +43,19 @@ static void * observerContext = &observerContext;
     [super viewDidLoad];
     self.viewModel = [ListViewModel new];
     [self.viewModel loadData];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    self.collectionView.scrollEnabled = YES;
+    
+    if ([[UIScreen mainScreen] bounds].size.width >= 375) {
+        [[self getFlowLayout] setItemSize:CGSizeMake(180, 180)];
+    } else {
+        [[self getFlowLayout] setItemSize:CGSizeMake(150, 150)];
+    }
+    
+    [[self getFlowLayout] setMinimumLineSpacing:2];
+    [[self getFlowLayout] setMinimumInteritemSpacing:2];
     [self.collectionView reloadData];
     
     self.state = ListViewStateNormal;
@@ -100,6 +114,14 @@ static void * observerContext = &observerContext;
             [self setupNavigationBarToSelection];
         }
     }
+}
+
+- (UICollectionViewFlowLayout *)getFlowLayout {
+    if ([self.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
+        UICollectionViewFlowLayout *l = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+        return l;
+    }
+    return NULL;
 }
 
 #pragma mark - Actions
@@ -161,8 +183,9 @@ static void * observerContext = &observerContext;
 #pragma mark - UICollectionViewDataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"asd" forIndexPath:indexPath];
+    BookCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BOOK_CELL" forIndexPath:indexPath];
     Book *displayingBook = self.viewModel.bookList[indexPath.row];
+    [cell applyBook:displayingBook];
     
     return cell;
 }
@@ -171,9 +194,6 @@ static void * observerContext = &observerContext;
     return [self.viewModel numberOfBooks];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
 
 #pragma mark - UICollectionViewDelegate
 

@@ -25,7 +25,7 @@
     [self addSubview:self.titleLabel];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [[self.titleLabel.centerXAnchor constraintEqualToAnchor:self.centerXAnchor] setActive:YES];
-    [[self.titleLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
+    [[self.titleLabel.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-11] setActive:YES];
 }
 
 - (void)setTitle:(NSString *)title {

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Book+CoreDataClass.h"
 
 @interface BookCollectionViewCell : UICollectionViewCell
+
+- (void)applyBook:(Book *)book;
 
 @end
