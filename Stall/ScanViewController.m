@@ -46,7 +46,7 @@
         } else {
             UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"The app requires camera access to work, please turn it on in setting" completion:^(){
                 __weak ScanViewController *weakSelf = self;
-                [weakSelf dismissViewControllerAnimated:YES completion:NULL];
+                [weakSelf.parentViewController dismissViewControllerAnimated:YES completion:NULL];
             }];
             [self presentViewController:alert animated:YES completion:NULL];
         }
