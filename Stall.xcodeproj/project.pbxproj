@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133712FE1E9A7062006C23B4 /* LoadViewModel.m */; };
 		133713081E9B4686006C23B4 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713071E9B4686006C23B4 /* ScanViewController.m */; };
-		1337130B1E9B4695006C23B4 /* ScanViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337130A1E9B4695006C23B4 /* ScanViewModel.m */; };
 		1337130E1E9B559C006C23B4 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337130D1E9B559C006C23B4 /* LoadViewController.m */; };
 		133713111E9B55A4006C23B4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713101E9B55A4006C23B4 /* DetailViewController.m */; };
 		133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713131E9B55B9006C23B4 /* DetailViewModel.m */; };
@@ -44,8 +43,6 @@
 		133712FE1E9A7062006C23B4 /* LoadViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewModel.m; sourceTree = "<group>"; };
 		133713061E9B4686006C23B4 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		133713071E9B4686006C23B4 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
-		133713091E9B4695006C23B4 /* ScanViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewModel.h; sourceTree = "<group>"; };
-		1337130A1E9B4695006C23B4 /* ScanViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewModel.m; sourceTree = "<group>"; };
 		1337130C1E9B559C006C23B4 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
 		1337130D1E9B559C006C23B4 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
 		1337130F1E9B55A4006C23B4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 			children = (
 				1368FFC71E9A270B005ADA05 /* ListViewModel.h */,
 				1368FFC81E9A270B005ADA05 /* ListViewModel.m */,
-				133713091E9B4695006C23B4 /* ScanViewModel.h */,
-				1337130A1E9B4695006C23B4 /* ScanViewModel.m */,
 				133712FD1E9A7062006C23B4 /* LoadViewModel.h */,
 				133712FE1E9A7062006C23B4 /* LoadViewModel.m */,
 				133713121E9B55B9006C23B4 /* DetailViewModel.h */,
@@ -414,7 +409,6 @@
 				133713111E9B55A4006C23B4 /* DetailViewController.m in Sources */,
 				13AACD681E967BBC00A42732 /* main.m in Sources */,
 				1337130E1E9B559C006C23B4 /* LoadViewController.m in Sources */,
-				1337130B1E9B4695006C23B4 /* ScanViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
