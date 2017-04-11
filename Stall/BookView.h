@@ -10,4 +10,6 @@
 
 @interface BookView : UIView
 
+@property (strong, nonatomic) UIImage * cover;
+
 @end
