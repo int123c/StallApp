@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailViewModel.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) DetailViewModel *viewModel;
 

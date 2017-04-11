@@ -8,21 +8,42 @@
 
 #import "DetailViewController.h"
 
+@interface DetailViewController()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *cells;
+
+@end
+
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewModel = [DetailViewModel new];
+    
+    [self setupForm];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.allowsSelection = false;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupForm {
+    self.cells =
+    @[
+      [UITableViewCell new],
+    ];
 }
-*/
+
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.cells[indexPath.row];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
 @end
