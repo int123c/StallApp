@@ -16,13 +16,13 @@
 
 @implementation STButton
 
-+ (instancetype)buttonWithIconName:(NSString *)name frame:(CGRect)frame {
-    STButton *button = [[STButton alloc] initWithFrame:CGRectZero];
++ (instancetype)buttonWithIconName:(NSString *)name {
+    UIImage *i = [UIImage imageNamed:name];
+    
+    STButton *button = [[STButton alloc] initWithFrame:CGRectMake(0, 0, i.size.width, i.size.height)];
     button.name = name;
     
-    UIImage *i = [UIImage imageNamed:name];
     button.icon = [[UIImageView alloc] initWithImage:i];
-    [button setFrame:CGRectMake(0, 0, i.size.width, i.size.height)];
     
     [button addSubview:button.icon];
     button.icon.translatesAutoresizingMaskIntoConstraints = NO;

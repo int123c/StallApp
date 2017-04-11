@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) NSString * name;
 
-+ (instancetype)buttonWithIconName:(NSString *)name frame:(CGRect)frame;
++ (instancetype)buttonWithIconName:(NSString *)name;
 
 @end
