@@ -7,13 +7,12 @@
 //
 
 #import "ScanViewController.h"
-#import "ScanViewModel.h"
 #import <MTBBarcodeScanner/MTBBarcodeScanner.h>
 #import "LoadViewController.h"
+#import "UIAlertController+ErrorAlert.h"
 
 @interface ScanViewController ()
 
-@property (nonatomic, strong) ScanViewModel *viewModel;
 @property (nonatomic, strong) MTBBarcodeScanner *scanner;
 @property (weak, nonatomic) IBOutlet UIView *scannerView;
 @property (nonatomic, strong) NSString *isbn;
@@ -41,10 +40,15 @@
                 
                 __weak ScanViewController *weakSelf = self;
                 [weakSelf presentLoadView];
+                
             } error:&error];
             
         } else {
-            // The user denied access to the camera
+            UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"The app requires camera access to work, please turn it on in setting" completion:^(){
+                __weak ScanViewController *weakSelf = self;
+                [weakSelf dismissViewControllerAnimated:YES completion:NULL];
+            }];
+            [self presentViewController:alert animated:YES completion:NULL];
         }
     }];
 }

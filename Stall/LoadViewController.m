@@ -56,17 +56,17 @@ static void * observerContext = &observerContext;
                 break;
             }
             case LoadingViewStateError: {
-                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Error in fetching book data."];
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Error in fetching book data." completion:NULL];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }
             case LoadingViewStateBookNotFound: {
-                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found."];
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found." completion:NULL];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }
             case LoadingViewStateExist: {
-                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book already exist."];
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book already exist." completion:NULL];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }

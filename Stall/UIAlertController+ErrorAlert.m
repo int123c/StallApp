@@ -10,10 +10,11 @@
 
 @implementation UIAlertController (ErrorAlert)
 
-+ (UIAlertController *)errorAlertWithMessage:(NSString *)message {
++ (instancetype)errorAlertWithMessage:(NSString *)message completion:(void (^ __nullable)())completionHandler {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:NULL message:@"Book not found." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler){
         [alert dismissViewControllerAnimated:YES completion:NULL];
+        completionHandler();
     }];
     
     [alert addAction:ok];

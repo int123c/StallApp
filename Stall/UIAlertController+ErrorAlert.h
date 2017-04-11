@@ -10,6 +10,6 @@
 
 @interface UIAlertController (ErrorAlert)
 
-+ (UIAlertController *)errorAlertWithMessage:(NSString *)message;
++ (instancetype _Nonnull)errorAlertWithMessage:(NSString * _Nonnull)message completion:(void (^ __nullable)())completionHandler;
 
 @end
