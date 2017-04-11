@@ -9,9 +9,14 @@
 #import "ListViewController.h"
 #import "Douban.h"
 #import "UIAlertController+ErrorAlert.h"
-#import "STBarcodeButton.h"
-#import "STTrashBinButton.h"
 #import "STNavigationBar.h"
+#import "STButton.h"
+
+
+typedef NS_ENUM(NSInteger, ListViewState) {
+    ListViewStateNormal = 0,
+    ListViewStateSelection
+};
 
 
 @interface ListViewController ()
@@ -22,8 +27,10 @@
 @property (weak, nonatomic) IBOutlet STNavigationBar *naviBar;
 
 @property (strong, nonatomic) UIButton *doneButton;
-@property (strong, nonatomic) STBarcodeButton *barcodeButton;
-@property (strong, nonatomic) STTrashBinButton *trashBinButton;
+@property (strong, nonatomic) STButton *barcodeButton;
+@property (strong, nonatomic) STButton *trashBinButton;
+@property (strong, nonatomic) STButton *heartButton;
+@property (nonatomic) ListViewState state;
 
 @end
 
@@ -37,6 +44,9 @@ static void * observerContext = &observerContext;
     [self.viewModel loadData];
     [self.collectionView reloadData];
     
+    self.state = ListViewStateNormal;
+    
+    [self setupNavigationBarButtons];
     [self setupNavigationBarToNormal];
 }
 
@@ -55,6 +65,22 @@ static void * observerContext = &observerContext;
     [super viewWillDisappear:animated];
 }
 
+- (void)setupNavigationBarButtons {
+    self.trashBinButton = [STButton buttonWithIconName:@"TrashBinIcon"];
+    [self.trashBinButton addTarget:self action:@selector(onTrashBinButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.barcodeButton = [STButton buttonWithIconName:@"BarcodeIcon"];
+    [self.barcodeButton addTarget:self action:@selector(onBarcodeButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.heartButton = [STButton buttonWithIconName:@"HeartOutlineIcon"];
+    [self.heartButton addTarget:self action:@selector(onHeartButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.doneButton = [UIButton new];
+    [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    self.doneButton.titleLabel.font = [UIFont systemFontOfSize:17];
+    [self.heartButton addTarget:self action:@selector(onDoneButtonTap) forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)setupNavigationBarToNormal {
     self.naviBar.rightActionView = self.doneButton;
     self.naviBar.title = @"Selected";
@@ -63,6 +89,35 @@ static void * observerContext = &observerContext;
 - (void)setupNavigationBarToSelection {
     self.naviBar.rightActionView = self.barcodeButton;
     self.naviBar.title = @"Stall";
+}
+
+- (void)setState:(ListViewState)state {
+    if (_state != state) {
+        _state = state;
+        if (state == ListViewStateNormal) {
+            [self setupNavigationBarToNormal];
+        } else {
+            [self setupNavigationBarToSelection];
+        }
+    }
+}
+
+#pragma mark - Actions
+
+- (void)onTrashBinButtonTap {
+    [self.viewModel removeBooksAtIndexSet:self.selectedBookIndexSet];
+}
+
+- (void)onBarcodeButtonTap {
+    [self.navigationController performSegueWithIdentifier:@"SHOW_SCAN_VIEW" sender:self];
+}
+
+- (void)onDoneButtonTap {
+    self.state = ListViewStateNormal;
+}
+
+- (void)onHeartButtonTap {
+    // like those books, implemented in future!
 }
 
 #pragma mark - Observation
@@ -92,9 +147,9 @@ static void * observerContext = &observerContext;
         
         if (object == self.selectedBookIndexSet) {
             if (change[NSKeyValueChangeNewKey] == 0 && change[NSKeyValueChangeOldKey] > 0) {
-                [self setupNavigationBarToNormal];
+                self.state = ListViewStateNormal;
             } else if (change[NSKeyValueChangeNewKey] > 0 && change[NSKeyValueChangeOldKey] == 0) {
-                [self setupNavigationBarToSelection];
+                self.state = ListViewStateSelection;
             }
         }
         
