@@ -10,4 +10,8 @@
 
 @interface STVectorButton : UIControl
 
+@property (strong, nonatomic) NSString * fileName;
+
++ (instancetype)buttonWithVectorIconFileName:(NSString *)name frame:(CGRect)frame;
+
 @end
