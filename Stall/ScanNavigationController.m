@@ -7,8 +7,11 @@
 //
 
 #import "ScanNavigationController.h"
+#import "STNavigationBar.h"
 
 @interface ScanNavigationController ()
+
+@property (strong, nonatomic) STNavigationBar *naviBar;
 
 @end
 
@@ -17,6 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationBarHidden:YES];
+    self.naviBar = [STNavigationBar new];
+    self.naviBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.naviBar];
+    [[self.naviBar.topAnchor constraintEqualToAnchor:self.view.topAnchor] setActive:YES];
+    [[self.naviBar.widthAnchor constraintEqualToAnchor:self.view.widthAnchor] setActive:YES];
+    [[self.naviBar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
+    [[self.naviBar.heightAnchor constraintEqualToConstant:44] setActive:YES];
+    
+    
 }
 
 /*

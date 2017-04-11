@@ -55,7 +55,7 @@
 }
 
 - (void)handleBookNotFound {
-    UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"Book not found."];
+    UIAlertController *alert = [UIAlertController errorAlertWithMessage:@"Book not found." completion:NULL];
     [self presentViewController:alert animated:YES completion:NULL];
 }
 
