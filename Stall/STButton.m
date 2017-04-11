@@ -16,9 +16,9 @@
 
 @implementation STButton
 
-+ (instancetype)buttonWithVectorIconFileName:(NSString *)name frame:(CGRect)frame {
++ (instancetype)buttonWithIconName:(NSString *)name frame:(CGRect)frame {
     STButton *button = [[STButton alloc] initWithFrame:CGRectZero];
-    button.fileName = name;
+    button.name = name;
     
     UIImage *i = [UIImage imageNamed:name];
     button.icon = [[UIImageView alloc] initWithImage:i];
