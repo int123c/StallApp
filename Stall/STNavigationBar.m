@@ -49,7 +49,7 @@
     [self addSubview:rightActionView];
     rightActionView.translatesAutoresizingMaskIntoConstraints = NO;
     [[rightActionView.centerYAnchor constraintEqualToAnchor:self.titleLabel.centerYAnchor] setActive:YES];
-    [[rightActionView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:8] setActive:YES];
+    [[rightActionView.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-8] setActive:YES];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

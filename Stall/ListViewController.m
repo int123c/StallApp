@@ -92,15 +92,16 @@ static void * observerContext = &observerContext;
     self.doneButton = [UIButton new];
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     self.doneButton.titleLabel.font = [UIFont systemFontOfSize:17];
+    self.doneButton.titleLabel.textColor = [UIColor blackColor];
     [self.heartButton addTarget:self action:@selector(onDoneButtonTap) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)setupNavigationBarToNormal {
+- (void)setupNavigationBarToSelection {
     self.naviBar.rightActionView = self.doneButton;
     self.naviBar.title = @"Selected";
 }
 
-- (void)setupNavigationBarToSelection {
+- (void)setupNavigationBarToNormal {
     self.naviBar.rightActionView = self.barcodeButton;
     self.naviBar.title = @"Stall";
 }
