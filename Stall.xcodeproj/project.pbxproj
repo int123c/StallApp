@@ -17,7 +17,7 @@
 		1337131F1E9CCBC7006C23B4 /* ListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337131E1E9CCBC7006C23B4 /* ListNavigationController.m */; };
 		133713221E9CCBD3006C23B4 /* ScanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713211E9CCBD3006C23B4 /* ScanNavigationController.m */; };
 		133713251E9CD13B006C23B4 /* STBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713241E9CD13B006C23B4 /* STBackButton.m */; };
-		1337132B1E9CD249006C23B4 /* STVectorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337132A1E9CD249006C23B4 /* STVectorButton.m */; };
+		1337132B1E9CD249006C23B4 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337132A1E9CD249006C23B4 /* STButton.m */; };
 		133713381E9CD41F006C23B4 /* BookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */; };
 		1337133B1E9CD44B006C23B4 /* BookTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337133A1E9CD44B006C23B4 /* BookTitleTableViewCell.m */; };
 		1337133E1E9CD456006C23B4 /* BookCoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */; };
@@ -70,8 +70,8 @@
 		133713211E9CCBD3006C23B4 /* ScanNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanNavigationController.m; sourceTree = "<group>"; };
 		133713231E9CD13B006C23B4 /* STBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBackButton.h; sourceTree = "<group>"; };
 		133713241E9CD13B006C23B4 /* STBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBackButton.m; sourceTree = "<group>"; };
-		133713291E9CD249006C23B4 /* STVectorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVectorButton.h; sourceTree = "<group>"; };
-		1337132A1E9CD249006C23B4 /* STVectorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVectorButton.m; sourceTree = "<group>"; };
+		133713291E9CD249006C23B4 /* STButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STButton.h; sourceTree = "<group>"; };
+		1337132A1E9CD249006C23B4 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
 		133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewCell.h; sourceTree = "<group>"; };
 		133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewCell.m; sourceTree = "<group>"; };
 		133713391E9CD44B006C23B4 /* BookTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTitleTableViewCell.h; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 			children = (
 				133713231E9CD13B006C23B4 /* STBackButton.h */,
 				133713241E9CD13B006C23B4 /* STBackButton.m */,
-				133713291E9CD249006C23B4 /* STVectorButton.h */,
-				1337132A1E9CD249006C23B4 /* STVectorButton.m */,
+				133713291E9CD249006C23B4 /* STButton.h */,
+				1337132A1E9CD249006C23B4 /* STButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -481,7 +481,7 @@
 				133713411E9CD45E006C23B4 /* BookRatingTableViewCell.m in Sources */,
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
 				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
-				1337132B1E9CD249006C23B4 /* STVectorButton.m in Sources */,
+				1337132B1E9CD249006C23B4 /* STButton.m in Sources */,
 				1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */,
 				133713441E9CD469006C23B4 /* BookInfoTableViewCell.m in Sources */,
 				133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */,
