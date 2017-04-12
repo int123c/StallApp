@@ -39,6 +39,8 @@
 - (void)setLeftActionView:(UIControl *)leftActionView {
     [_leftActionView removeFromSuperview];
     _leftActionView = leftActionView;
+    [self addSubview:leftActionView];
+    leftActionView.translatesAutoresizingMaskIntoConstraints = NO;
     [[leftActionView.centerYAnchor constraintEqualToAnchor:self.titleLabel.centerYAnchor] setActive:YES];
     [[leftActionView.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:8] setActive:YES];
 }
