@@ -187,7 +187,7 @@
                     <navigationItem key="navigationItem" title="Scan" id="dfW-vt-3D8"/>
                     <connections>
                         <outlet property="scannerView" destination="qgn-JX-9O3" id="iqC-Fk-Wvl"/>
-                        <segue destination="fpk-DO-mJT" kind="show" identifier="SHOW_LOADING_VIEW" id="vQi-EK-TSa"/>
+                        <segue destination="fpk-DO-mJT" kind="show" identifier="SHOW_LOAD_VIEW" id="vQi-EK-TSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrj-nA-BYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
