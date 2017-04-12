@@ -62,7 +62,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 
 - (BOOL)isbnAlreadyExist:(NSString *)isbn {
     Book *exist = [Book MR_findFirstByAttribute:@"isbn" withValue:isbn];
-    return exist != NULL;
+    return exist != nil;
 }
 
 - (void)fetchBookCoverAtURL:(NSString *)urlString underJSON:(NSDictionary *)json isbn:(NSString *)isbn {
