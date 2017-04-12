@@ -56,7 +56,7 @@
     [self.bookWrapper addSubview:self.titleLabel];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [[self.titleLabel.centerXAnchor constraintEqualToAnchor:self.bookWrapper.centerXAnchor] setActive:YES];
-    [[self.titleLabel.bottomAnchor constraintEqualToAnchor:self.bookWrapper.bottomAnchor constant:8] setActive:YES];
+    [[self.titleLabel.bottomAnchor constraintEqualToAnchor:self.bookWrapper.bottomAnchor constant:-8] setActive:YES];
 }
 
 - (void)applyBook:(Book *)book {
