@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "Douban.h"
+#import "BookValue.h"
+#import "Book+CoreDataClass.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MagicalRecord setupCoreDataStack];
+    Douban *douban = [Douban new];
+    [douban fetchBookValueForISBN:@"9787542630544"];
+    [douban fetchBookValueForISBN:@"9787543630543"];
+    [douban fetchBookValueForISBN:@"9787513910767"];
+    [douban fetchBookValueForISBN:@"9787208143715"];
+    [douban fetchBookValueForISBN:@"9787549589555"];
+    [douban fetchBookValueForISBN:@"9787549586646"];
+    [douban fetchBookValueForISBN:@"9787532773596"];
+    [douban fetchBookValueForISBN:@"9787550285125"];
+    [douban fetchBookValueForISBN:@"9787564926533"];
     return YES;
 }
 
@@ -24,6 +39,7 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    [MagicalRecord cleanUp];
 }
 
 
@@ -46,7 +62,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+    [MagicalRecord cleanUp];
 }
 
 

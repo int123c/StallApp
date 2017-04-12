@@ -7,14 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133712FE1E9A7062006C23B4 /* LoadViewModel.m */; };
+		133713081E9B4686006C23B4 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713071E9B4686006C23B4 /* ScanViewController.m */; };
+		1337130E1E9B559C006C23B4 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337130D1E9B559C006C23B4 /* LoadViewController.m */; };
+		133713111E9B55A4006C23B4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713101E9B55A4006C23B4 /* DetailViewController.m */; };
+		133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713131E9B55B9006C23B4 /* DetailViewModel.m */; };
+		133713171E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */; };
+		1337131B1E9CC291006C23B4 /* STNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337131A1E9CC291006C23B4 /* STNavigationBar.m */; };
+		1337131F1E9CCBC7006C23B4 /* ListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337131E1E9CCBC7006C23B4 /* ListNavigationController.m */; };
+		133713221E9CCBD3006C23B4 /* ScanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713211E9CCBD3006C23B4 /* ScanNavigationController.m */; };
+		133713251E9CD13B006C23B4 /* STBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713241E9CD13B006C23B4 /* STBackButton.m */; };
+		1337132B1E9CD249006C23B4 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337132A1E9CD249006C23B4 /* STButton.m */; };
+		133713381E9CD41F006C23B4 /* BookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */; };
+		1337133E1E9CD456006C23B4 /* BookCoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */; };
+		133713471E9CD47D006C23B4 /* BookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713461E9CD47D006C23B4 /* BookView.m */; };
+		1337134A1E9E050E006C23B4 /* Stall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */; };
+		1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFC81E9A270B005ADA05 /* ListViewModel.m */; };
+		1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFCC1E9A2E32005ADA05 /* Douban.m */; };
+		1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFCF1E9A2E4F005ADA05 /* BookValue.m */; };
 		13AACD681E967BBC00A42732 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD671E967BBC00A42732 /* main.m */; };
 		13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD6A1E967BBC00A42732 /* AppDelegate.m */; };
-		13AACD6E1E967BBC00A42732 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD6D1E967BBC00A42732 /* ViewController.m */; };
+		13AACD6E1E967BBC00A42732 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD6D1E967BBC00A42732 /* ListViewController.m */; };
 		13AACD711E967BBC00A42732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD6F1E967BBC00A42732 /* Main.storyboard */; };
-		13AACD741E967BBC00A42732 /* Stall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */; };
 		13AACD761E967BBC00A42732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD751E967BBC00A42732 /* Assets.xcassets */; };
 		13AACD791E967BBC00A42732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */; };
 		13AACD841E967BBC00A42732 /* StallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD831E967BBC00A42732 /* StallTests.m */; };
+		13B350BC1E9E074100515501 /* Book+Stall.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B350BB1E9E074100515501 /* Book+Stall.m */; };
+		13B350BF1E9E2B0A00515501 /* UITableViewCell+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */; };
+		B12741C1EE16F0243A53DA76 /* libPods-Stall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +48,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		133712FD1E9A7062006C23B4 /* LoadViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewModel.h; sourceTree = "<group>"; };
+		133712FE1E9A7062006C23B4 /* LoadViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewModel.m; sourceTree = "<group>"; };
+		133713061E9B4686006C23B4 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		133713071E9B4686006C23B4 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		1337130C1E9B559C006C23B4 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		1337130D1E9B559C006C23B4 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
+		1337130F1E9B55A4006C23B4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		133713101E9B55A4006C23B4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		133713121E9B55B9006C23B4 /* DetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewModel.h; sourceTree = "<group>"; };
+		133713131E9B55B9006C23B4 /* DetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewModel.m; sourceTree = "<group>"; };
+		133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+ErrorAlert.m"; sourceTree = "<group>"; };
+		133713181E9BCB00006C23B4 /* UIAlertController+ErrorAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+ErrorAlert.h"; sourceTree = "<group>"; };
+		133713191E9CC291006C23B4 /* STNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationBar.h; sourceTree = "<group>"; };
+		1337131A1E9CC291006C23B4 /* STNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationBar.m; sourceTree = "<group>"; };
+		1337131D1E9CCBC7006C23B4 /* ListNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListNavigationController.h; sourceTree = "<group>"; };
+		1337131E1E9CCBC7006C23B4 /* ListNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListNavigationController.m; sourceTree = "<group>"; };
+		133713201E9CCBD3006C23B4 /* ScanNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanNavigationController.h; sourceTree = "<group>"; };
+		133713211E9CCBD3006C23B4 /* ScanNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanNavigationController.m; sourceTree = "<group>"; };
+		133713231E9CD13B006C23B4 /* STBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBackButton.h; sourceTree = "<group>"; };
+		133713241E9CD13B006C23B4 /* STBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBackButton.m; sourceTree = "<group>"; };
+		133713291E9CD249006C23B4 /* STButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STButton.h; sourceTree = "<group>"; };
+		1337132A1E9CD249006C23B4 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
+		133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewCell.h; sourceTree = "<group>"; };
+		133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewCell.m; sourceTree = "<group>"; };
+		1337133C1E9CD456006C23B4 /* BookCoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverTableViewCell.h; sourceTree = "<group>"; };
+		1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCoverTableViewCell.m; sourceTree = "<group>"; };
+		133713451E9CD47D006C23B4 /* BookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookView.h; sourceTree = "<group>"; };
+		133713461E9CD47D006C23B4 /* BookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookView.m; sourceTree = "<group>"; };
+		133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Stall 2.xcdatamodel"; sourceTree = "<group>"; };
+		1368FFC71E9A270B005ADA05 /* ListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewModel.h; sourceTree = "<group>"; };
+		1368FFC81E9A270B005ADA05 /* ListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewModel.m; sourceTree = "<group>"; };
+		1368FFCB1E9A2E32005ADA05 /* Douban.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Douban.h; sourceTree = "<group>"; };
+		1368FFCC1E9A2E32005ADA05 /* Douban.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Douban.m; sourceTree = "<group>"; };
+		1368FFCE1E9A2E4F005ADA05 /* BookValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookValue.h; sourceTree = "<group>"; };
+		1368FFCF1E9A2E4F005ADA05 /* BookValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookValue.m; sourceTree = "<group>"; };
 		13AACD631E967BBC00A42732 /* Stall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AACD671E967BBC00A42732 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13AACD691E967BBC00A42732 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13AACD6A1E967BBC00A42732 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13AACD6C1E967BBC00A42732 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		13AACD6D1E967BBC00A42732 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		13AACD6C1E967BBC00A42732 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		13AACD6D1E967BBC00A42732 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		13AACD701E967BBC00A42732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13AACD731E967BBC00A42732 /* Stall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stall.xcdatamodel; sourceTree = "<group>"; };
 		13AACD751E967BBC00A42732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +97,13 @@
 		13AACD7F1E967BBC00A42732 /* StallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AACD831E967BBC00A42732 /* StallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StallTests.m; sourceTree = "<group>"; };
 		13AACD851E967BBC00A42732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B350BA1E9E074100515501 /* Book+Stall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Stall.h"; sourceTree = "<group>"; };
+		13B350BB1E9E074100515501 /* Book+Stall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Stall.m"; sourceTree = "<group>"; };
+		13B350BD1E9E2B0A00515501 /* UITableViewCell+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Form.h"; sourceTree = "<group>"; };
+		13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Form.m"; sourceTree = "<group>"; };
+		A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.debug.xcconfig"; sourceTree = "<group>"; };
+		FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12741C1EE16F0243A53DA76 /* libPods-Stall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +125,119 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1337131C1E9CC297006C23B4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				13AACD6F1E967BBC00A42732 /* Main.storyboard */,
+				13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		133713351E9CD3FE006C23B4 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				133713231E9CD13B006C23B4 /* STBackButton.h */,
+				133713241E9CD13B006C23B4 /* STBackButton.m */,
+				133713291E9CD249006C23B4 /* STButton.h */,
+				1337132A1E9CD249006C23B4 /* STButton.m */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		1368FFC21E9A2439005ADA05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */,
+				13B350BA1E9E074100515501 /* Book+Stall.h */,
+				13B350BB1E9E074100515501 /* Book+Stall.m */,
+				1368FFCE1E9A2E4F005ADA05 /* BookValue.h */,
+				1368FFCF1E9A2E4F005ADA05 /* BookValue.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1368FFC31E9A2674005ADA05 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13AACD6C1E967BBC00A42732 /* ListViewController.h */,
+				13AACD6D1E967BBC00A42732 /* ListViewController.m */,
+				133713061E9B4686006C23B4 /* ScanViewController.h */,
+				133713071E9B4686006C23B4 /* ScanViewController.m */,
+				1337130C1E9B559C006C23B4 /* LoadViewController.h */,
+				1337130D1E9B559C006C23B4 /* LoadViewController.m */,
+				1337130F1E9B55A4006C23B4 /* DetailViewController.h */,
+				133713101E9B55A4006C23B4 /* DetailViewController.m */,
+				133713181E9BCB00006C23B4 /* UIAlertController+ErrorAlert.h */,
+				133713161E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m */,
+				1337131D1E9CCBC7006C23B4 /* ListNavigationController.h */,
+				1337131E1E9CCBC7006C23B4 /* ListNavigationController.m */,
+				133713201E9CCBD3006C23B4 /* ScanNavigationController.h */,
+				133713211E9CCBD3006C23B4 /* ScanNavigationController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1368FFC41E9A2685005ADA05 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				1368FFC71E9A270B005ADA05 /* ListViewModel.h */,
+				1368FFC81E9A270B005ADA05 /* ListViewModel.m */,
+				133712FD1E9A7062006C23B4 /* LoadViewModel.h */,
+				133712FE1E9A7062006C23B4 /* LoadViewModel.m */,
+				133713121E9B55B9006C23B4 /* DetailViewModel.h */,
+				133713131E9B55B9006C23B4 /* DetailViewModel.m */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
+		1368FFC51E9A268C005ADA05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1337131C1E9CC297006C23B4 /* Storyboards */,
+				133713191E9CC291006C23B4 /* STNavigationBar.h */,
+				1337131A1E9CC291006C23B4 /* STNavigationBar.m */,
+				133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */,
+				133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */,
+				133713351E9CD3FE006C23B4 /* Buttons */,
+				1337133C1E9CD456006C23B4 /* BookCoverTableViewCell.h */,
+				1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */,
+				133713451E9CD47D006C23B4 /* BookView.h */,
+				133713461E9CD47D006C23B4 /* BookView.m */,
+				13B350BD1E9E2B0A00515501 /* UITableViewCell+Form.h */,
+				13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1368FFC61E9A269F005ADA05 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				13AACD691E967BBC00A42732 /* AppDelegate.h */,
+				13AACD6A1E967BBC00A42732 /* AppDelegate.m */,
+				13AACD751E967BBC00A42732 /* Assets.xcassets */,
+				13AACD7A1E967BBC00A42732 /* Info.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		1368FFCA1E9A2E17005ADA05 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1368FFCB1E9A2E32005ADA05 /* Douban.h */,
+				1368FFCC1E9A2E32005ADA05 /* Douban.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		13AACD5A1E967BBB00A42732 = {
 			isa = PBXGroup;
 			children = (
 				13AACD651E967BBC00A42732 /* Stall */,
 				13AACD821E967BBC00A42732 /* StallTests */,
 				13AACD641E967BBC00A42732 /* Products */,
+				4BAA96DD3DE59C20FD024B66 /* Pods */,
+				5A09575C9B87CE23459502AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,15 +253,12 @@
 		13AACD651E967BBC00A42732 /* Stall */ = {
 			isa = PBXGroup;
 			children = (
-				13AACD691E967BBC00A42732 /* AppDelegate.h */,
-				13AACD6A1E967BBC00A42732 /* AppDelegate.m */,
-				13AACD6C1E967BBC00A42732 /* ViewController.h */,
-				13AACD6D1E967BBC00A42732 /* ViewController.m */,
-				13AACD6F1E967BBC00A42732 /* Main.storyboard */,
-				13AACD751E967BBC00A42732 /* Assets.xcassets */,
-				13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */,
-				13AACD7A1E967BBC00A42732 /* Info.plist */,
-				13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */,
+				1368FFCA1E9A2E17005ADA05 /* Tools */,
+				1368FFC21E9A2439005ADA05 /* Model */,
+				1368FFC51E9A268C005ADA05 /* Views */,
+				1368FFC41E9A2685005ADA05 /* View Models */,
+				1368FFC31E9A2674005ADA05 /* View Controllers */,
+				1368FFC61E9A269F005ADA05 /* App */,
 				13AACD661E967BBC00A42732 /* Supporting Files */,
 			);
 			path = Stall;
@@ -114,6 +281,23 @@
 			path = StallTests;
 			sourceTree = "<group>";
 		};
+		4BAA96DD3DE59C20FD024B66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */,
+				FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5A09575C9B87CE23459502AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13AACD881E967BBC00A42732 /* Build configuration list for PBXNativeTarget "Stall" */;
 			buildPhases = (
+				C968AC3431DF2F86D5F14D53 /* [CP] Check Pods Manifest.lock */,
 				13AACD5F1E967BBC00A42732 /* Sources */,
 				13AACD601E967BBC00A42732 /* Frameworks */,
 				13AACD611E967BBC00A42732 /* Resources */,
+				A11ECEEEAD97A858C189CC24 /* [CP] Embed Pods Frameworks */,
+				55F42B65DB43B9E785E011B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,15 +400,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55F42B65DB43B9E785E011B3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stall/Pods-Stall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A11ECEEEAD97A858C189CC24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stall/Pods-Stall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C968AC3431DF2F86D5F14D53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		13AACD5F1E967BBC00A42732 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13AACD6E1E967BBC00A42732 /* ViewController.m in Sources */,
+				1337134A1E9E050E006C23B4 /* Stall.xcdatamodeld in Sources */,
+				13AACD6E1E967BBC00A42732 /* ListViewController.m in Sources */,
+				133713081E9B4686006C23B4 /* ScanViewController.m in Sources */,
 				13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */,
-				13AACD741E967BBC00A42732 /* Stall.xcdatamodeld in Sources */,
+				1337133E1E9CD456006C23B4 /* BookCoverTableViewCell.m in Sources */,
+				13B350BF1E9E2B0A00515501 /* UITableViewCell+Form.m in Sources */,
+				1337131B1E9CC291006C23B4 /* STNavigationBar.m in Sources */,
+				133713171E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m in Sources */,
+				1337131F1E9CCBC7006C23B4 /* ListNavigationController.m in Sources */,
+				133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */,
+				133713251E9CD13B006C23B4 /* STBackButton.m in Sources */,
+				133713221E9CCBD3006C23B4 /* ScanNavigationController.m in Sources */,
+				13B350BC1E9E074100515501 /* Book+Stall.m in Sources */,
+				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
+				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
+				1337132B1E9CD249006C23B4 /* STButton.m in Sources */,
+				133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */,
+				1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */,
+				133713381E9CD41F006C23B4 /* BookCollectionViewCell.m in Sources */,
+				133713111E9B55A4006C23B4 /* DetailViewController.m in Sources */,
 				13AACD681E967BBC00A42732 /* main.m in Sources */,
+				1337130E1E9B559C006C23B4 /* LoadViewController.m in Sources */,
+				133713471E9CD47D006C23B4 /* BookView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +609,7 @@
 		};
 		13AACD891E967BBC00A42732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55U5W647LP;
@@ -367,6 +622,7 @@
 		};
 		13AACD8A1E967BBC00A42732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55U5W647LP;
@@ -422,6 +678,7 @@
 				13AACD8A1E967BBC00A42732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13AACD8B1E967BBC00A42732 /* Build configuration list for PBXNativeTarget "StallTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +687,7 @@
 				13AACD8D1E967BBC00A42732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -437,9 +695,10 @@
 		13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */,
 				13AACD731E967BBC00A42732 /* Stall.xcdatamodel */,
 			);
-			currentVersion = 13AACD731E967BBC00A42732 /* Stall.xcdatamodel */;
+			currentVersion = 133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */;
 			path = Stall.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
