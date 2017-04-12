@@ -101,6 +101,7 @@
 		13B350BB1E9E074100515501 /* Book+Stall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Stall.m"; sourceTree = "<group>"; };
 		13B350BD1E9E2B0A00515501 /* UITableViewCell+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Form.h"; sourceTree = "<group>"; };
 		13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Form.m"; sourceTree = "<group>"; };
+		13EAC70F1E9E7DFE0076BD5A /* Stall 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Stall 3.xcdatamodel"; sourceTree = "<group>"; };
 		A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.debug.xcconfig"; sourceTree = "<group>"; };
 		FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.release.xcconfig"; sourceTree = "<group>"; };
@@ -695,10 +696,11 @@
 		13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				13EAC70F1E9E7DFE0076BD5A /* Stall 3.xcdatamodel */,
 				133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */,
 				13AACD731E967BBC00A42732 /* Stall.xcdatamodel */,
 			);
-			currentVersion = 133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */;
+			currentVersion = 13EAC70F1E9E7DFE0076BD5A /* Stall 3.xcdatamodel */;
 			path = Stall.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

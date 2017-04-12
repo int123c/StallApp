@@ -22,16 +22,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStack];
-    Douban *douban = [Douban new];
-    [douban fetchBookValueForISBN:@"9787542630544"];
-    [douban fetchBookValueForISBN:@"9787543630543"];
-    [douban fetchBookValueForISBN:@"9787513910767"];
-    [douban fetchBookValueForISBN:@"9787208143715"];
-    [douban fetchBookValueForISBN:@"9787549589555"];
-    [douban fetchBookValueForISBN:@"9787549586646"];
-    [douban fetchBookValueForISBN:@"9787532773596"];
-    [douban fetchBookValueForISBN:@"9787550285125"];
-    [douban fetchBookValueForISBN:@"9787564926533"];
     return YES;
 }
 
