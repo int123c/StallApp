@@ -266,23 +266,6 @@
             </objects>
             <point key="canvasLocation" x="785" y="857"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="AZO-4B-ycX">
-            <objects>
-                <viewController id="Ezp-v3-Lp5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VE1-VU-VGD"/>
-                        <viewControllerLayoutGuide type="bottom" id="rkj-VK-Ebs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="l35-kd-wlB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mkk-8n-v6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="LargeBarcode" width="232" height="140"/>

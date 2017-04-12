@@ -1,17 +1,17 @@
 //
-//  Book+CoreDataClass.m
+//  Book+Book_Stall.m
 //  Stall
 //
-//  Created by Inti Guo on 09/04/2017.
+//  Created by Inti Guo on 12/04/2017.
 //  Copyright © 2017 Inti Guo. All rights reserved.
 //
 
-#import "Book+CoreDataClass.h"
+#import "Book+Stall.h"
 
-@implementation Book
+@implementation Book (Stall)
 
 /**
-    Apply the values in `BookValue` into `self`. 
+ Apply the values in `BookValue` into `self`.
  */
 - (void)applyBookValue:(BookValue *)value {
     self.title = value.title;

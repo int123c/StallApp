@@ -24,8 +24,7 @@
 		133713411E9CD45E006C23B4 /* BookRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713401E9CD45E006C23B4 /* BookRatingTableViewCell.m */; };
 		133713441E9CD469006C23B4 /* BookInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713431E9CD469006C23B4 /* BookInfoTableViewCell.m */; };
 		133713471E9CD47D006C23B4 /* BookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713461E9CD47D006C23B4 /* BookView.m */; };
-		1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */; };
-		1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFBF1E9A2433005ADA05 /* Book+CoreDataProperties.m */; };
+		1337134A1E9E050E006C23B4 /* Stall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */; };
 		1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFC81E9A270B005ADA05 /* ListViewModel.m */; };
 		1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFCC1E9A2E32005ADA05 /* Douban.m */; };
 		1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFCF1E9A2E4F005ADA05 /* BookValue.m */; };
@@ -36,6 +35,7 @@
 		13AACD761E967BBC00A42732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD751E967BBC00A42732 /* Assets.xcassets */; };
 		13AACD791E967BBC00A42732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */; };
 		13AACD841E967BBC00A42732 /* StallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD831E967BBC00A42732 /* StallTests.m */; };
+		13B350BC1E9E074100515501 /* Book+Stall.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B350BB1E9E074100515501 /* Book+Stall.m */; };
 		B12741C1EE16F0243A53DA76 /* libPods-Stall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +84,7 @@
 		133713431E9CD469006C23B4 /* BookInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoTableViewCell.m; sourceTree = "<group>"; };
 		133713451E9CD47D006C23B4 /* BookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookView.h; sourceTree = "<group>"; };
 		133713461E9CD47D006C23B4 /* BookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookView.m; sourceTree = "<group>"; };
-		1368FFBC1E9A2433005ADA05 /* Book+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataClass.h"; sourceTree = "<group>"; };
-		1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+CoreDataClass.m"; sourceTree = "<group>"; };
-		1368FFBE1E9A2433005ADA05 /* Book+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataProperties.h"; sourceTree = "<group>"; };
-		1368FFBF1E9A2433005ADA05 /* Book+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+CoreDataProperties.m"; sourceTree = "<group>"; };
+		133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Stall 2.xcdatamodel"; sourceTree = "<group>"; };
 		1368FFC71E9A270B005ADA05 /* ListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewModel.h; sourceTree = "<group>"; };
 		1368FFC81E9A270B005ADA05 /* ListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewModel.m; sourceTree = "<group>"; };
 		1368FFCB1E9A2E32005ADA05 /* Douban.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Douban.h; sourceTree = "<group>"; };
@@ -108,6 +105,8 @@
 		13AACD7F1E967BBC00A42732 /* StallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AACD831E967BBC00A42732 /* StallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StallTests.m; sourceTree = "<group>"; };
 		13AACD851E967BBC00A42732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B350BA1E9E074100515501 /* Book+Stall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Stall.h"; sourceTree = "<group>"; };
+		13B350BB1E9E074100515501 /* Book+Stall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Stall.m"; sourceTree = "<group>"; };
 		A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.debug.xcconfig"; sourceTree = "<group>"; };
 		FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,10 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */,
-				1368FFBC1E9A2433005ADA05 /* Book+CoreDataClass.h */,
-				1368FFBD1E9A2433005ADA05 /* Book+CoreDataClass.m */,
-				1368FFBE1E9A2433005ADA05 /* Book+CoreDataProperties.h */,
-				1368FFBF1E9A2433005ADA05 /* Book+CoreDataProperties.m */,
+				13B350BA1E9E074100515501 /* Book+Stall.h */,
+				13B350BB1E9E074100515501 /* Book+Stall.m */,
 				1368FFCE1E9A2E4F005ADA05 /* BookValue.h */,
 				1368FFCF1E9A2E4F005ADA05 /* BookValue.m */,
 			);
@@ -466,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1337134A1E9E050E006C23B4 /* Stall.xcdatamodeld in Sources */,
 				13AACD6E1E967BBC00A42732 /* ListViewController.m in Sources */,
 				133713081E9B4686006C23B4 /* ScanViewController.m in Sources */,
 				13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */,
@@ -476,13 +474,12 @@
 				1337131F1E9CCBC7006C23B4 /* ListNavigationController.m in Sources */,
 				133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */,
 				133713251E9CD13B006C23B4 /* STBackButton.m in Sources */,
-				1368FFC11E9A2433005ADA05 /* Book+CoreDataProperties.m in Sources */,
 				133713221E9CCBD3006C23B4 /* ScanNavigationController.m in Sources */,
 				133713411E9CD45E006C23B4 /* BookRatingTableViewCell.m in Sources */,
+				13B350BC1E9E074100515501 /* Book+Stall.m in Sources */,
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
 				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
 				1337132B1E9CD249006C23B4 /* STButton.m in Sources */,
-				1368FFC01E9A2433005ADA05 /* Book+CoreDataClass.m in Sources */,
 				133713441E9CD469006C23B4 /* BookInfoTableViewCell.m in Sources */,
 				133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */,
 				1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */,
@@ -710,9 +707,10 @@
 		13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */,
 				13AACD731E967BBC00A42732 /* Stall.xcdatamodel */,
 			);
-			currentVersion = 13AACD731E967BBC00A42732 /* Stall.xcdatamodel */;
+			currentVersion = 133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */;
 			path = Stall.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

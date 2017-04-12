@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "BookValue.h"
 #import <MagicalRecord/MagicalRecord.h>
-#import "Book+CoreDataClass.h"
+#import "Book+Stall.h"
 
 NSString * const ERROR_ON_FETCH = @"ERROR_ON_FETCH";
 NSString * const ERROR_ON_IMAGE_DOWNLOAD = @"ERROR_ON_IMAGE_DOWNLOAD";
