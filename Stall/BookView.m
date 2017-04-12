@@ -13,10 +13,11 @@
 @property (strong, nonatomic) CALayer * coverLayer;
 @property (strong, nonatomic) CAShapeLayer * cropLayer;
 @property (strong, nonatomic) CALayer * highlightLayer;
+@property (strong, nonatomic) CALayer * lightLayer;
 @property (strong, nonatomic) CAGradientLayer * darkenLayer;
 @property (strong, nonatomic) CAGradientLayer * reflectionLayer;
 @property (strong, nonatomic) CAGradientLayer * innerShadowLayer;
-//@property (strong, nonatomic) CAShapeLayer * shadowLayer;
+@property (strong, nonatomic) CALayer * shadowLayer;
 
 @property (strong, nonatomic) CALayer *bookLayer;
 
@@ -35,13 +36,17 @@ static void * observerContext = &observerContext;
 }
 
 - (void)setup {
+    self.shadowLayer = [CALayer new];
+    self.shadowLayer.frame = CGRectZero;
+    self.shadowLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    self.shadowLayer.shadowColor = [[UIColor colorWithRed:160.0/255 green:160.0/255 blue:160.0/255 alpha:1] CGColor];
+    self.shadowLayer.shadowOffset = CGSizeMake(-1, 3);
+    self.shadowLayer.shadowRadius = 4;
+    self.shadowLayer.shadowOpacity = 1;
+    [self.layer addSublayer:self.shadowLayer];
+    
     self.bookLayer = [CALayer new];
     self.bookLayer.frame = CGRectZero;
-    self.bookLayer.shadowColor = [[UIColor colorWithRed:160.0/255 green:160.0/255 blue:160.0/255 alpha:0.5] CGColor];
-    self.bookLayer.shadowOffset = CGSizeMake(-1, 3);
-    self.bookLayer.shadowRadius = 4;
-    self.bookLayer.shadowOpacity = 1;
-    self.bookLayer.backgroundColor = [[UIColor greenColor] CGColor];
     [self.layer addSublayer:self.bookLayer];
     
     self.cropLayer = [CAShapeLayer new];
@@ -54,10 +59,22 @@ static void * observerContext = &observerContext;
     self.coverLayer.backgroundColor = [[[UIColor redColor] colorWithAlphaComponent:0.5] CGColor];
     [self.bookLayer addSublayer:self.coverLayer];
     
+    self.reflectionLayer = [CAGradientLayer new];
+    self.reflectionLayer.frame = CGRectZero;
+    self.reflectionLayer.colors = @[[UIColor colorWithWhite:0.8 alpha:0.18], [UIColor colorWithWhite:1 alpha:0.3]];
+    self.reflectionLayer.startPoint = CGPointMake(0, 0.5);
+    self.reflectionLayer.endPoint = CGPointMake(1, 0.3);
+    [self.bookLayer addSublayer:self.reflectionLayer];
+    
     self.highlightLayer = [CALayer new];
     self.highlightLayer.frame = CGRectZero;
     self.highlightLayer.backgroundColor = ([[UIColor colorWithWhite:1 alpha:0.4] CGColor]);
     [self.bookLayer addSublayer:self.highlightLayer];
+    
+    self.lightLayer = [CALayer new];
+    self.lightLayer.frame = CGRectZero;
+    self.lightLayer.backgroundColor = ([[UIColor colorWithWhite:1 alpha:0.3] CGColor]);
+    [self.bookLayer addSublayer:self.lightLayer];
     
     self.darkenLayer = [CAGradientLayer new];
     self.darkenLayer.frame = CGRectZero;
@@ -65,13 +82,6 @@ static void * observerContext = &observerContext;
     self.darkenLayer.startPoint = CGPointMake(0, 0);
     self.darkenLayer.endPoint = CGPointMake(1, 1);
     [self.bookLayer addSublayer:self.darkenLayer];
-    
-    self.reflectionLayer = [CAGradientLayer new];
-    self.reflectionLayer.frame = CGRectZero;
-    self.reflectionLayer.colors = @[[UIColor colorWithWhite:0.8 alpha:0.18], [UIColor colorWithWhite:1 alpha:0.3]];
-    self.reflectionLayer.startPoint = CGPointMake(0, 0.5);
-    self.reflectionLayer.endPoint = CGPointMake(1, 0.3);
-    [self.bookLayer addSublayer:self.reflectionLayer];
     
     self.innerShadowLayer = [CAGradientLayer new];
     self.innerShadowLayer.frame = CGRectZero;
@@ -119,9 +129,14 @@ static void * observerContext = &observerContext;
     
     // set textures
     self.highlightLayer.frame = CGRectMake(3, 0, 2, coverSize.height);
+    self.lightLayer.frame = CGRectMake(coverSize.width - 1, 0, 1, coverSize.height);
     self.darkenLayer.frame = CGRectMake(0, 0, 3, coverSize.height);
     self.reflectionLayer.frame = CGRectMake(5, 0, coverSize.width - 5, coverSize.height);
     self.innerShadowLayer.frame = CGRectMake(0, coverSize.height - 2, coverSize.width, 2);
+    
+    // set shadow
+    self.shadowLayer.frame = CGRectMake(bookX, bookY, coverSize.width, coverSize.height);
+    self.shadowLayer.shadowPath = [path CGPath];
 }
 
 @end
