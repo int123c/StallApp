@@ -10,7 +10,7 @@
 
 @implementation BookValue
 
-- (instancetype)initWithJSON:(NSDictionary *)json coverURL:(NSString *)cover {
+- (instancetype)initWithJSON:(NSDictionary *)json {
     self = [super init];
     
     if (self != nil) {
@@ -62,7 +62,7 @@
         self.subtitle = subtitle;
         self.authors = authors;
         self.pubdate = pubdate;
-        self.cover = cover;
+        self.cover = [NSString stringWithFormat:@"%@.jpg", isbn];
         self.binding = binding;
         self.translators = translators;
         self.originTitle = originTitle;

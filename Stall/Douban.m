@@ -97,18 +97,18 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
 }
 
 - (void)postSuccessNitificationWithJson:(NSDictionary *)json coverURL:(NSURL *)cover {
-    BookValue *value = [[BookValue alloc] initWithJSON:json coverURL:cover.absoluteString];
-    Book *newBook = [Book MR_createEntity];
+    BookValue *value = [[BookValue alloc] initWithJSON:json];
     
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *context) {
+        Book *newBook = [Book MR_createEntityInContext:context];
         [newBook applyBookValue:value];
     } completion:^(BOOL contextDidSave, NSError *error) {
         if (error != nil) {
             [NSNotificationCenter.defaultCenter postNotificationName:ERROR_ON_SAVE object:self];
             [NSFileManager.defaultManager removeItemAtURL:cover error:nil];
         } else {
-            [NSNotificationCenter.defaultCenter postNotificationName:SUCCESS_ON_FETCH object:self userInfo:@{@"isbn": newBook.isbn}];
-            NSLog(@"New book《%@》successfully fetched.", newBook.title);
+            [NSNotificationCenter.defaultCenter postNotificationName:SUCCESS_ON_FETCH object:self userInfo:@{@"isbn": value.isbn}];
+            NSLog(@"New book《%@》successfully fetched.", value.title);
         }
     }];
     

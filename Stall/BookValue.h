@@ -27,6 +27,6 @@
 @property (nullable, nonatomic, copy) NSString *category;
 @property (nullable, nonatomic, copy) NSString *price;
 
-- (id _Nonnull)initWithJSON:(NSDictionary *_Nonnull)json coverURL:(NSString *_Nullable)cover;
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end

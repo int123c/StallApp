@@ -54,7 +54,8 @@
 }
 
 - (void)applyBook:(Book *)book {
-    NSURL *url = [NSURL URLWithString:book.cover];
+    NSURL *baseurl = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:false error:nil];
+    NSURL *url = [baseurl URLByAppendingPathComponent:book.cover];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     [self layoutIfNeeded];

@@ -204,6 +204,7 @@ static void * observerContext = &observerContext;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self.viewModel.bookList[indexPath.row]];
+
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
