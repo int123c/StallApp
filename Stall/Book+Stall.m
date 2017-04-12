@@ -29,6 +29,7 @@
     self.summary = value.summary;
     self.category = value.category;
     self.price = value.price;
+    self.publisher = value.publisher;
 }
 
 @end

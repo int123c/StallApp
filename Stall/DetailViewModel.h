@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) Book * book;
 
+- (NSString *)getPubdateString;
+- (NSString *)getRatingString;
+- (NSString *)getPageCountString;
+
 @end

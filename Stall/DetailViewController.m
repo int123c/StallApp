@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "UITableViewCell+Form.h"
 
 @interface DetailViewController()
 
@@ -28,9 +29,36 @@
 }
 
 - (void)setupForm {
+    UITableViewCell *titleCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NULL];
+    titleCell.textLabel.text = self.viewModel.book.title;
+    titleCell.textLabel.font = [UIFont systemFontOfSize:30];
+
+    UITableViewCell *authorCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NULL];
+    authorCell.textLabel.text = self.viewModel.book.authors;
+    authorCell.textLabel.font = [UIFont systemFontOfSize:20];
+    authorCell.textLabel.textColor = [UIColor grayColor];
+    
+    UITableViewCell *coverCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NULL];
+
+    UITableViewCell *ratingCell = [UITableViewCell formCellWithTitle:@"Rating"
+                                                               value:self.viewModel.getRatingString];
+    
+    UITableViewCell *publisherCell = [UITableViewCell formCellWithTitle:@"Publisher"
+                                                                  value:self.viewModel.book.publisher];
+    UITableViewCell *pubdateCell = [UITableViewCell formCellWithTitle:@"Publish Date"
+                                                                  value:self.viewModel.getPubdateString];
+    UITableViewCell *pageCountCell = [UITableViewCell formCellWithTitle:@"Page Count"
+                                                                  value:self.viewModel.getPageCountString];
+    UITableViewCell *priceCell = [UITableViewCell formCellWithTitle:@"Price"
+                                                              value:self.viewModel.book.price];
+    UITableViewCell *bindingCell = [UITableViewCell formCellWithTitle:@"Binding"
+                                                                value:self.viewModel.book.binding];
+    
     self.cells =
     @[
-      [UITableViewCell new],
+      titleCell, authorCell, coverCell,
+      ratingCell, publisherCell, pubdateCell,
+      pageCountCell, priceCell, bindingCell
     ];
 }
 
@@ -53,8 +81,21 @@
     return self.cells[indexPath.row];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: // title
+            return 50;
+        case 1: // author
+            return 22;
+        case 2: // cover
+            return 240;
+        default: // others
+            return 44;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.cells.count;
 }
 
 @end

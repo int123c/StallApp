@@ -18,6 +18,7 @@
 @property (nullable, nonatomic, copy) NSDate *pubdate;
 @property (nullable, nonatomic, copy) NSString *cover;
 @property (nullable, nonatomic, copy) NSString *binding;
+@property (nullable, nonatomic, copy) NSString *publisher;
 @property (nullable, nonatomic, copy) NSString *translators;
 @property (nullable, nonatomic, copy) NSString *originTitle;
 @property (nonatomic) int64_t pages;

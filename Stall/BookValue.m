@@ -37,6 +37,8 @@
         
         NSString *binding = json[@"binding"];
         
+        NSString *publisher = json[@"publisher"];
+        
         NSArray *translatorArray = json[@"translator"];
         NSString *translators = [translatorArray componentsJoinedByString:@", "];
         
@@ -69,6 +71,7 @@
         self.summary = summary;
         self.category = category;
         self.price = price;
+        self.publisher = publisher;
     }
     
     return self;

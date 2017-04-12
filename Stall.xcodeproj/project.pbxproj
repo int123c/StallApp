@@ -19,10 +19,7 @@
 		133713251E9CD13B006C23B4 /* STBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713241E9CD13B006C23B4 /* STBackButton.m */; };
 		1337132B1E9CD249006C23B4 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337132A1E9CD249006C23B4 /* STButton.m */; };
 		133713381E9CD41F006C23B4 /* BookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */; };
-		1337133B1E9CD44B006C23B4 /* BookTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337133A1E9CD44B006C23B4 /* BookTitleTableViewCell.m */; };
 		1337133E1E9CD456006C23B4 /* BookCoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */; };
-		133713411E9CD45E006C23B4 /* BookRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713401E9CD45E006C23B4 /* BookRatingTableViewCell.m */; };
-		133713441E9CD469006C23B4 /* BookInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713431E9CD469006C23B4 /* BookInfoTableViewCell.m */; };
 		133713471E9CD47D006C23B4 /* BookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133713461E9CD47D006C23B4 /* BookView.m */; };
 		1337134A1E9E050E006C23B4 /* Stall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD721E967BBC00A42732 /* Stall.xcdatamodeld */; };
 		1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368FFC81E9A270B005ADA05 /* ListViewModel.m */; };
@@ -36,6 +33,7 @@
 		13AACD791E967BBC00A42732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AACD771E967BBC00A42732 /* LaunchScreen.storyboard */; };
 		13AACD841E967BBC00A42732 /* StallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AACD831E967BBC00A42732 /* StallTests.m */; };
 		13B350BC1E9E074100515501 /* Book+Stall.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B350BB1E9E074100515501 /* Book+Stall.m */; };
+		13B350BF1E9E2B0A00515501 /* UITableViewCell+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */; };
 		B12741C1EE16F0243A53DA76 /* libPods-Stall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */; };
 /* End PBXBuildFile section */
 
@@ -74,14 +72,8 @@
 		1337132A1E9CD249006C23B4 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
 		133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewCell.h; sourceTree = "<group>"; };
 		133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewCell.m; sourceTree = "<group>"; };
-		133713391E9CD44B006C23B4 /* BookTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTitleTableViewCell.h; sourceTree = "<group>"; };
-		1337133A1E9CD44B006C23B4 /* BookTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTitleTableViewCell.m; sourceTree = "<group>"; };
 		1337133C1E9CD456006C23B4 /* BookCoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverTableViewCell.h; sourceTree = "<group>"; };
 		1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCoverTableViewCell.m; sourceTree = "<group>"; };
-		1337133F1E9CD45E006C23B4 /* BookRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookRatingTableViewCell.h; sourceTree = "<group>"; };
-		133713401E9CD45E006C23B4 /* BookRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookRatingTableViewCell.m; sourceTree = "<group>"; };
-		133713421E9CD469006C23B4 /* BookInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoTableViewCell.h; sourceTree = "<group>"; };
-		133713431E9CD469006C23B4 /* BookInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoTableViewCell.m; sourceTree = "<group>"; };
 		133713451E9CD47D006C23B4 /* BookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookView.h; sourceTree = "<group>"; };
 		133713461E9CD47D006C23B4 /* BookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookView.m; sourceTree = "<group>"; };
 		133713481E9E02D9006C23B4 /* Stall 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Stall 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -107,6 +99,8 @@
 		13AACD851E967BBC00A42732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B350BA1E9E074100515501 /* Book+Stall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Stall.h"; sourceTree = "<group>"; };
 		13B350BB1E9E074100515501 /* Book+Stall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Stall.m"; sourceTree = "<group>"; };
+		13B350BD1E9E2B0A00515501 /* UITableViewCell+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Form.h"; sourceTree = "<group>"; };
+		13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Form.m"; sourceTree = "<group>"; };
 		A86BADF458A7FEBD4286D1E3 /* libPods-Stall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B661C5677CD44B797E716F /* Pods-Stall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.debug.xcconfig"; sourceTree = "<group>"; };
 		FEE1D0273FF2A21F0285F75E /* Pods-Stall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stall/Pods-Stall.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,16 +200,12 @@
 				133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */,
 				133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */,
 				133713351E9CD3FE006C23B4 /* Buttons */,
-				133713391E9CD44B006C23B4 /* BookTitleTableViewCell.h */,
-				1337133A1E9CD44B006C23B4 /* BookTitleTableViewCell.m */,
 				1337133C1E9CD456006C23B4 /* BookCoverTableViewCell.h */,
 				1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */,
-				1337133F1E9CD45E006C23B4 /* BookRatingTableViewCell.h */,
-				133713401E9CD45E006C23B4 /* BookRatingTableViewCell.m */,
-				133713421E9CD469006C23B4 /* BookInfoTableViewCell.h */,
-				133713431E9CD469006C23B4 /* BookInfoTableViewCell.m */,
 				133713451E9CD47D006C23B4 /* BookView.h */,
 				133713461E9CD47D006C23B4 /* BookView.m */,
+				13B350BD1E9E2B0A00515501 /* UITableViewCell+Form.h */,
+				13B350BE1E9E2B0A00515501 /* UITableViewCell+Form.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -468,19 +458,17 @@
 				133713081E9B4686006C23B4 /* ScanViewController.m in Sources */,
 				13AACD6B1E967BBC00A42732 /* AppDelegate.m in Sources */,
 				1337133E1E9CD456006C23B4 /* BookCoverTableViewCell.m in Sources */,
-				1337133B1E9CD44B006C23B4 /* BookTitleTableViewCell.m in Sources */,
+				13B350BF1E9E2B0A00515501 /* UITableViewCell+Form.m in Sources */,
 				1337131B1E9CC291006C23B4 /* STNavigationBar.m in Sources */,
 				133713171E9BCA20006C23B4 /* UIAlertController+ErrorAlert.m in Sources */,
 				1337131F1E9CCBC7006C23B4 /* ListNavigationController.m in Sources */,
 				133713141E9B55B9006C23B4 /* DetailViewModel.m in Sources */,
 				133713251E9CD13B006C23B4 /* STBackButton.m in Sources */,
 				133713221E9CCBD3006C23B4 /* ScanNavigationController.m in Sources */,
-				133713411E9CD45E006C23B4 /* BookRatingTableViewCell.m in Sources */,
 				13B350BC1E9E074100515501 /* Book+Stall.m in Sources */,
 				1368FFC91E9A270B005ADA05 /* ListViewModel.m in Sources */,
 				1368FFCD1E9A2E32005ADA05 /* Douban.m in Sources */,
 				1337132B1E9CD249006C23B4 /* STButton.m in Sources */,
-				133713441E9CD469006C23B4 /* BookInfoTableViewCell.m in Sources */,
 				133712FF1E9A7062006C23B4 /* LoadViewModel.m in Sources */,
 				1368FFD01E9A2E4F005ADA05 /* BookValue.m in Sources */,
 				133713381E9CD41F006C23B4 /* BookCollectionViewCell.m in Sources */,
