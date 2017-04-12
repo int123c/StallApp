@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Book+CoreDataClass.h"
 
+typedef NS_ENUM(NSInteger, BookCollectionViewCellState) {
+    BookCollectionViewCellStateNormal = 0,
+    BookCollectionViewCellStateLiked,
+    BookCollectionViewCellStateSelected
+};
+
 @interface BookCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic) BookCollectionViewCellState state;
 - (void)applyBook:(Book *)book;
 
 @end

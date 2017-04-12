@@ -25,6 +25,8 @@
 - (UIColor *)backdropColorLiked { return [UIColor colorWithRed:255.0/255 green:233.0/255 blue:233.0/255 alpha:1]; }
 
 - (void)setup {
+    self.state = BookCollectionViewCellStateNormal;
+    
     self.backdrop = [UIView new];
     self.backdrop.backgroundColor = [self backdropColorNormal];
     [self.contentView addSubview:self.backdrop];
@@ -67,6 +69,22 @@
     [self layoutIfNeeded];
     self.bookView.cover = image;
     self.titleLabel.text = book.title;
+    self.state = BookCollectionViewCellStateNormal;
+}
+
+- (void)setState:(BookCollectionViewCellState)state {
+    switch (state) {
+        case BookCollectionViewCellStateNormal:
+            self.backdrop.backgroundColor = [self backdropColorNormal];
+            break;
+        case BookCollectionViewCellStateLiked:
+            self.backdrop.backgroundColor = [self backdropColorLiked];
+            break;
+        case BookCollectionViewCellStateSelected:
+            self.backdrop.backgroundColor = [self backdropColorSelected];
+            _state = state;
+            break;
+    }
 }
 
 
