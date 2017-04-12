@@ -24,7 +24,7 @@
     [MagicalRecord setupCoreDataStack];
     Douban *douban = [Douban new];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNewBookFetched:) name:SUCCESS_ON_FETCH object:nil];
-    [douban fetchBookValueForISBN:@"9787111128069"];
+    [douban fetchBookValueForISBN:@"9787542630544"];
     return YES;
 }
 
