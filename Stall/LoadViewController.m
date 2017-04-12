@@ -52,8 +52,9 @@ static void * observerContext = &observerContext;
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.y"];
     animation.fromValue = [NSNumber numberWithDouble:0];
     animation.toValue = [NSNumber numberWithDouble:self.barcodeView.frame.size.height];
-    animation.duration = 0.5;
-    animation.fillMode = kCAFillModeBackwards;
+    animation.duration = 0.8;
+    animation.autoreverses = true;
+    animation.repeatCount = 100;
     [self.laser.layer addAnimation:animation forKey:NULL];
 }
 
