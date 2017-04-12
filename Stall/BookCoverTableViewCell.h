@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Book+Stall.h"
 
 @interface BookCoverTableViewCell : UITableViewCell
+
+- (void)applyBook:(Book *)book;
+- (void)animateIn;
 
 @end

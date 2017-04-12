@@ -8,11 +8,13 @@
 
 #import "DetailViewController.h"
 #import "UITableViewCell+Form.h"
+#import "BookCoverTableViewCell.h"
 
 @interface DetailViewController()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *cells;
+@property (strong, nonatomic) BookCoverTableViewCell *coverCell;
 
 @end
 
@@ -28,6 +30,11 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.coverCell applyBook:self.viewModel.book];
+    [self.coverCell animateIn];
+}
+
 - (void)setupForm {
     UITableViewCell *titleCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NULL];
     titleCell.textLabel.text = self.viewModel.book.title;
@@ -38,7 +45,7 @@
     authorCell.textLabel.font = [UIFont systemFontOfSize:20];
     authorCell.textLabel.textColor = [UIColor grayColor];
     
-    UITableViewCell *coverCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NULL];
+    self.coverCell = [BookCoverTableViewCell new];
 
     UITableViewCell *ratingCell = [UITableViewCell formCellWithTitle:@"Rating"
                                                                value:self.viewModel.getRatingString];
@@ -56,7 +63,7 @@
     
     self.cells =
     @[
-      titleCell, authorCell, coverCell,
+      titleCell, authorCell, self.coverCell,
       ratingCell, publisherCell, pubdateCell,
       pageCountCell, priceCell, bindingCell
     ];
@@ -88,7 +95,7 @@
         case 1: // author
             return 22;
         case 2: // cover
-            return 240;
+            return 260;
         default: // others
             return 44;
     }
