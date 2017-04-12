@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewModel.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @implementation DetailViewModel
 

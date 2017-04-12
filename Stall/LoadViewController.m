@@ -26,8 +26,6 @@ static void * observerContext = &observerContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [LoadViewModel new];
-    self.viewModel.currentISBN = self.currentISBN;
     [self.viewModel setupTimer];
 }
 
@@ -101,6 +99,19 @@ static void * observerContext = &observerContext;
     [self.viewModel removeObserver:self forKeyPath:@"timesup"];
     [self.viewModel removeObservers];
     [super viewWillDisappear:animated];
+}
+
+- (void)setup {
+    self.viewModel = [LoadViewModel new];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
 }
                               
 /*

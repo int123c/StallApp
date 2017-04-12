@@ -36,11 +36,10 @@
             [self.scanner startScanningWithResultBlock:^(NSArray *codes) {
                 AVMetadataMachineReadableCodeObject *code = [codes firstObject];
                 NSLog(@"Found code: %@", code.stringValue);
-                self.isbn = code.stringValue;
                 [self.scanner stopScanning];
                 
                 __weak ScanViewController *weakSelf = self;
-                [weakSelf presentLoadView];
+                [weakSelf presentLoadViewWithISBN:code.stringValue];
                 
             } error:&error];
             
@@ -54,8 +53,8 @@
     }];
 }
 
-- (void)presentLoadView {
-    [self performSegueWithIdentifier:@"SHOW_LOAD_VIEW" sender:self];
+- (void)presentLoadViewWithISBN:(NSString *)isbn {
+    [self performSegueWithIdentifier:@"SHOW_LOAD_VIEW" sender:isbn];
 }
 
 
@@ -65,7 +64,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isKindOfClass:[LoadViewController class]]) {
         LoadViewController *loadViewController = segue.destinationViewController;
-        [loadViewController setCurrentISBN: self.isbn];
+        loadViewController.viewModel.currentISBN = sender;
     }
 }
 

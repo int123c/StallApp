@@ -19,8 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [DetailViewModel new];
-    
     [self setupForm];
     
     self.tableView.dataSource = self;
@@ -34,6 +32,19 @@
     @[
       [UITableViewCell new],
     ];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    self.viewModel = [DetailViewModel new];
 }
 
 #pragma mark - UITableViewDataSource

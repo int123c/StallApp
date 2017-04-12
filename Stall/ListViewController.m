@@ -12,6 +12,7 @@
 #import "STNavigationBar.h"
 #import "STButton.h"
 #import "BookCollectionViewCell.h"
+#import "DetailViewController.h"
 
 
 typedef NS_ENUM(NSInteger, ListViewState) {
@@ -202,7 +203,7 @@ static void * observerContext = &observerContext;
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self];
+    [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self.viewModel.bookList[indexPath.row]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -216,7 +217,12 @@ static void * observerContext = &observerContext;
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
+        DetailViewController *vc = (DetailViewController *)segue.destinationViewController;
+        if ([sender isKindOfClass:[Book class]]) {
+            vc.viewModel.book = sender;
+        }
+    }
 }
 
 @end
