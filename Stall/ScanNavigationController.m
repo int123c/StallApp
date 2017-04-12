@@ -13,7 +13,7 @@
 @interface ScanNavigationController ()
 
 @property (strong, nonatomic) STNavigationBar *naviBar;
-@property (strong, nonatomic) STBackButton *backButton;
+@property (strong, nonatomic) UIButton *backButton;
 
 @end
 
@@ -31,18 +31,24 @@
     [[self.naviBar.heightAnchor constraintEqualToConstant:64] setActive:YES];
     self.naviBar.title = @"Scan";
     
-    self.backButton = [STBackButton new];
+    self.backButton = [UIButton new];
+
+    [self.backButton setTitle:@"← Stall" forState:UIControlStateNormal];
+    [self.backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.backButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
+    [self.backButton addTarget:self action:@selector(onBackButtonTap) forControlEvents:UIControlEventTouchUpInside];
     self.naviBar.leftActionView = self.backButton;
 }
 
-/*
+- (void)onBackButtonTap {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
-*/
 
 @end

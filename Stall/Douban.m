@@ -103,6 +103,7 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
             [NSFileManager.defaultManager removeItemAtURL:cover error:nil];
         } else {
             [NSNotificationCenter.defaultCenter postNotificationName:SUCCESS_ON_FETCH object:self userInfo:@{@"isbn": newBook.isbn}];
+            NSLog(@"New book《%@》successfully fetched.", newBook.title);
         }
     }];
     

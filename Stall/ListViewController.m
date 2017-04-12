@@ -91,8 +91,7 @@ static void * observerContext = &observerContext;
     
     self.doneButton = [UIButton new];
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    self.doneButton.titleLabel.font = [UIFont systemFontOfSize:17];
-    self.doneButton.titleLabel.textColor = [UIColor blackColor];
+    [self.doneButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
     [self.heartButton addTarget:self action:@selector(onDoneButtonTap) forControlEvents:UIControlEventTouchUpInside];
 }
 
