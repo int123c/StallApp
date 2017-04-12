@@ -8,6 +8,13 @@
 
 #import "LoadViewModel.h"
 #import "Douban.h"
+#import <MagicalRecord/MagicalRecord.h>
+
+@interface LoadViewModel()
+
+@property (strong, nonatomic) NSTimer *timer;
+
+@end
 
 @implementation LoadViewModel
 
@@ -16,7 +23,17 @@
     [douban fetchBookValueForISBN:self.currentISBN];
 }
 
+- (void)setupTimer {
+    self.timesup = NO;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(onTimerFire:) userInfo:NULL repeats:NO];
+}
+
+- (void)onTimerFire:(NSTimer *)timer {
+    self.timesup = YES;
+}
+
 - (void)handleSuccess:(NSNotification *)notification {
+    self.book = [Book MR_findFirstByAttribute:@"isbn" withValue:self.currentISBN];
     self.state = LoadingViewStateFinished;
 }
 

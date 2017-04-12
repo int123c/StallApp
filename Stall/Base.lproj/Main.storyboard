@@ -92,7 +92,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="SHOW_BOOK_DETAIL" id="Mt9-9V-eh7"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="SHOW_DETAIL" id="Mt9-9V-eh7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -220,7 +220,7 @@
                                         <rect key="frame" x="71" y="19.5" width="232" height="140"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sff-UV-eNf">
-                                        <rect key="frame" x="-0.5" y="79.5" width="375" height="20"/>
+                                        <rect key="frame" x="-0.5" y="0.0" width="375" height="20"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="THS-6m-hIF"/>
@@ -239,10 +239,10 @@
                                     <constraint firstAttribute="bottom" secondItem="V7e-QR-cQ3" secondAttribute="bottomMargin" id="B7i-P3-NLB"/>
                                     <constraint firstItem="ZGT-p9-UL4" firstAttribute="centerY" secondItem="TnP-T8-L3q" secondAttribute="centerY" id="BuM-m9-mjK"/>
                                     <constraint firstItem="V7e-QR-cQ3" firstAttribute="centerX" secondItem="TnP-T8-L3q" secondAttribute="centerX" id="CoB-ns-DAW"/>
+                                    <constraint firstItem="Sff-UV-eNf" firstAttribute="top" secondItem="TnP-T8-L3q" secondAttribute="top" id="EKQ-H7-2aR"/>
                                     <constraint firstItem="Sff-UV-eNf" firstAttribute="width" secondItem="TnP-T8-L3q" secondAttribute="width" id="Mq3-vX-Fra"/>
                                     <constraint firstItem="ZGT-p9-UL4" firstAttribute="centerX" secondItem="TnP-T8-L3q" secondAttribute="centerX" id="OXC-sa-qsU"/>
                                     <constraint firstItem="Sff-UV-eNf" firstAttribute="centerX" secondItem="TnP-T8-L3q" secondAttribute="centerX" id="ihZ-mI-TBi"/>
-                                    <constraint firstItem="Sff-UV-eNf" firstAttribute="centerY" secondItem="TnP-T8-L3q" secondAttribute="centerY" id="ubQ-Nq-RzX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -260,6 +260,8 @@
                     <connections>
                         <outlet property="barcodeView" destination="TnP-T8-L3q" id="K31-kD-V1y"/>
                         <outlet property="bookView" destination="OkN-Lu-Fgn" id="SBt-Kk-Ue7"/>
+                        <outlet property="isbnLabel" destination="V7e-QR-cQ3" id="YEb-SP-xDI"/>
+                        <outlet property="laser" destination="Sff-UV-eNf" id="MCT-1i-5vC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHo-pS-JAC" userLabel="First Responder" sceneMemberID="firstResponder"/>

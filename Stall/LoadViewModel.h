@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Book+Stall.h"
 
 typedef NS_ENUM(NSInteger, LoadingViewState) {
     LoadingViewStateLoading,
@@ -20,9 +21,11 @@ typedef NS_ENUM(NSInteger, LoadingViewState) {
 
 @property (nonatomic, copy) NSString * currentISBN;
 @property (nonatomic) LoadingViewState state;
+@property (nonatomic) BOOL timesup;
+@property (nonatomic) Book *book;
 
 - (void)fetchBookInfo;
-
+- (void)setupTimer;
 - (void)setupObservers;
 - (void)removeObservers;
 

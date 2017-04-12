@@ -42,6 +42,7 @@ static void * observerContext = &observerContext;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewModel = [ListViewModel new];
+    [self.viewModel setupObservers];
     [self.viewModel loadData];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -69,14 +70,17 @@ static void * observerContext = &observerContext;
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onItemChanged) name:ITEM_CHANGED object:self.viewModel];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleBookNotFound) name:ERROR_BOOK_NOT_FOUND object:NULL];
     [self.selectedBookIndexSet addObserver:self forKeyPath:@"count" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:observerContext];
-    [self.viewModel setupObservers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [NSNotificationCenter.defaultCenter removeObserver:self];
-    [self.viewModel removeObservers];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:ERROR_BOOK_NOT_FOUND object:NULL];
     [self.selectedBookIndexSet removeObserver:self forKeyPath:@"count"];
     [super viewWillDisappear:animated];
+}
+
+- (void)dealloc {
+    [self.viewModel removeObservers];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)setupNavigationBarButtons {

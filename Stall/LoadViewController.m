@@ -14,7 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *barcodeView;
 @property (weak, nonatomic) IBOutlet UIView *bookView;
-
+@property (weak, nonatomic) IBOutlet UIView *laser;
+@property (weak, nonatomic) IBOutlet UILabel *isbnLabel;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -25,6 +27,8 @@ static void * observerContext = &observerContext;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewModel = [LoadViewModel new];
+    self.viewModel.currentISBN = self.currentISBN;
+    [self.viewModel setupTimer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,26 +37,40 @@ static void * observerContext = &observerContext;
                      forKeyPath:@"state"
                         options:NSKeyValueObservingOptionNew
                         context:observerContext];
+    [self.viewModel addObserver:self
+                     forKeyPath:@"timesup"
+                        options:NSKeyValueObservingOptionNew
+                        context:observerContext];
     [self.viewModel setupObservers];
+    [self.isbnLabel setText:self.viewModel.currentISBN];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.viewModel fetchBookInfo];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    animation.fromValue = [NSNumber numberWithDouble:0];
+    animation.toValue = [NSNumber numberWithDouble:self.barcodeView.frame.size.height];
+    animation.duration = 0.5;
+    animation.fillMode = kCAFillModeBackwards;
+    [self.laser.layer addAnimation:animation forKey:NULL];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     
     if (context == observerContext) {
+        if (!self.viewModel.timesup) { return; }
         
         switch (self.viewModel.state) {
             case LoadingViewStateFinished: {
-                // show book
+                [UIView animateWithDuration:0.1 animations:^(){
+                    self.barcodeView.alpha = 0;
+                }];
                 break;
             }
             case LoadingViewStateLoading: {
-                // show barcode animation
                 break;
             }
             case LoadingViewStateError: {
@@ -79,10 +97,11 @@ static void * observerContext = &observerContext;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.viewModel removeObserver:self forKeyPath:@"state"];
+    [self.viewModel removeObserver:self forKeyPath:@"timesup"];
     [self.viewModel removeObservers];
     [super viewWillDisappear:animated];
 }
-
+                              
 /*
 #pragma mark - Navigation
 

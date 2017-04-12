@@ -36,6 +36,7 @@
             [self.scanner startScanningWithResultBlock:^(NSArray *codes) {
                 AVMetadataMachineReadableCodeObject *code = [codes firstObject];
                 NSLog(@"Found code: %@", code.stringValue);
+                self.isbn = code.stringValue;
                 [self.scanner stopScanning];
                 
                 __weak ScanViewController *weakSelf = self;
@@ -64,7 +65,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isKindOfClass:[LoadViewController class]]) {
         LoadViewController *loadViewController = segue.destinationViewController;
-        loadViewController.viewModel.currentISBN = self.isbn;
+        [loadViewController setCurrentISBN: self.isbn];
     }
 }
 

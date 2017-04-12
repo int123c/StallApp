@@ -45,6 +45,7 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
 - (void)onNewItemFetched:(NSNotification *)notification {
     NSString *isbn = notification.userInfo[@"isbn"];
     Book *newBook = [Book MR_findFirstByAttribute:@"isbn" withValue:isbn];
+    if (newBook == NULL) { return; }
     [self.bookList insertObject:newBook atIndex:0];
     NSLog(@"%lu book found", (unsigned long)self.bookList.count);
     self.manipulation = Add;

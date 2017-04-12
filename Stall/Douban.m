@@ -27,6 +27,11 @@ NSString * const SUCCESS_ON_FETCH = @"SUCCESS_ON_FETCH";
         return;
     }
     
+    if ([isbn length] == 0) {
+        NSLog(@"No ISBN found.");
+        return;
+    }
+    
     NSString *url = [NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/:%@", isbn];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];

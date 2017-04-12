@@ -12,5 +12,6 @@
 @interface LoadViewController : UIViewController
 
 @property (nonatomic, strong) LoadViewModel *viewModel;
+@property (nonatomic, strong) NSString *currentISBN;
 
 @end
