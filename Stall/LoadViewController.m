@@ -58,7 +58,6 @@ static void * observerContext = &observerContext;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    
     if (context == observerContext) {
         if (!self.viewModel.timesup) { return; }
         
@@ -78,12 +77,18 @@ static void * observerContext = &observerContext;
                 break;
             }
             case LoadingViewStateBookNotFound: {
-                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found." completion:NULL];
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book not found." completion:^() {
+                    __weak LoadViewController *weakSelf = self;
+                    [weakSelf.navigationController dismissViewControllerAnimated:YES completion:NULL];
+                }];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }
             case LoadingViewStateExist: {
-                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book already exist." completion:NULL];
+                UIAlertController *alert = [UIAlertController errorAlertWithMessage: @"Book already exist." completion:^() {
+                    __weak LoadViewController *weakSelf = self;
+                    [weakSelf.navigationController dismissViewControllerAnimated:YES completion:NULL];
+                }];
                 [self presentViewController:alert animated:YES completion:NULL];
                 break;
             }

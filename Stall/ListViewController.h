@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ListViewModel.h"
 
-@interface ListViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ListViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) ListViewModel *viewModel;
 

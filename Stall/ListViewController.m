@@ -45,6 +45,7 @@ static void * observerContext = &observerContext;
     self.viewModel = [ListViewModel new];
     [self.viewModel setupObservers];
     [self.viewModel loadData];
+    self.selectedBookIndexSet = [NSMutableIndexSet new];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
@@ -64,6 +65,14 @@ static void * observerContext = &observerContext;
     
     [self setupNavigationBarButtons];
     [self setupNavigationBarToNormal];
+    
+    UILongPressGestureRecognizer *lp = [UILongPressGestureRecognizer new];
+    lp.minimumPressDuration = 1;
+    lp.delaysTouchesBegan = true;
+    [lp addTarget:self action:@selector(onLongPress:)];
+    lp.delegate = self;
+    
+    [self.collectionView addGestureRecognizer:lp];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -97,16 +106,18 @@ static void * observerContext = &observerContext;
     self.doneButton = [UIButton new];
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [self.doneButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
-    [self.heartButton addTarget:self action:@selector(onDoneButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    [self.doneButton addTarget:self action:@selector(onDoneButtonTap) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setupNavigationBarToSelection {
     self.naviBar.rightActionView = self.doneButton;
+    self.naviBar.leftActionView = self.trashBinButton;
     self.naviBar.title = @"Selected";
 }
 
 - (void)setupNavigationBarToNormal {
     self.naviBar.rightActionView = self.barcodeButton;
+    self.naviBar.leftActionView = NULL;
     self.naviBar.title = @"Stall";
 }
 
@@ -133,6 +144,11 @@ static void * observerContext = &observerContext;
 
 - (void)onTrashBinButtonTap {
     [self.viewModel removeBooksAtIndexSet:self.selectedBookIndexSet];
+    NSMutableArray *indexPathes = [NSMutableArray new];
+    [self.selectedBookIndexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        [indexPathes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+    }];
+    [self.collectionView deleteItemsAtIndexPaths:indexPathes];
 }
 
 - (void)onBarcodeButtonTap {
@@ -140,11 +156,41 @@ static void * observerContext = &observerContext;
 }
 
 - (void)onDoneButtonTap {
+    [self.selectedBookIndexSet removeAllIndexes];
+    [self.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *obj, NSUInteger index, BOOL *stop) {
+        BookCollectionViewCell *c = (BookCollectionViewCell *)obj;
+        c.state = BookCollectionViewCellStateNormal;
+    }];
     self.state = ListViewStateNormal;
 }
 
 - (void)onHeartButtonTap {
     // like those books, implemented in future!
+}
+
+- (void)onLongPress:(UILongPressGestureRecognizer *)lp {
+    CGPoint location = [lp locationInView:self.collectionView];
+    __block BOOL found = false;
+    
+    [self.collectionView.indexPathsForVisibleItems enumerateObjectsUsingBlock:^(NSIndexPath *obj, NSUInteger idx, BOOL *stop) {
+        BookCollectionViewCell *c = (BookCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
+        BOOL inside = [c hitTest:location withEvent:NULL];
+        if (inside) {
+            *stop = true;
+            found = true;
+            [self.selectedBookIndexSet addIndex:obj.row];
+            c.state = BookCollectionViewCellStateSelected;
+        }
+    }];
+    
+    self.state = ListViewStateSelection;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.state == ListViewStateNormal) {
+        return true;
+    }
+    return false;
 }
 
 #pragma mark - Observation
@@ -192,6 +238,10 @@ static void * observerContext = &observerContext;
     Book *displayingBook = self.viewModel.bookList[indexPath.row];
     [cell applyBook:displayingBook];
     
+    if ([self.selectedBookIndexSet containsIndex:indexPath.row]) {
+        cell.state = BookCollectionViewCellStateSelected;
+    }
+    
     return cell;
 }
 
@@ -203,16 +253,19 @@ static void * observerContext = &observerContext;
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self.viewModel.bookList[indexPath.row]];
-
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.selectedBookIndexSet addIndex:indexPath.row];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.selectedBookIndexSet removeIndex:indexPath.row];
+    if (self.state == BookCollectionViewCellStateNormal) {
+        [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self.viewModel.bookList[indexPath.row]];
+    } else {
+        if ([self.selectedBookIndexSet containsIndex:indexPath.row]) {
+            [self.selectedBookIndexSet removeIndex:indexPath.row];
+            BookCollectionViewCell *c = (BookCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            c.state = BookCollectionViewCellStateNormal;
+        } else {
+            [self.selectedBookIndexSet addIndex:indexPath.row];
+            BookCollectionViewCell *c = (BookCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            c.state = BookCollectionViewCellStateSelected;
+        }
+    }
 }
 
 #pragma mark - Navigation
