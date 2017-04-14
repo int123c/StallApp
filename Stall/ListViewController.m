@@ -254,7 +254,7 @@ static void * observerContext = &observerContext;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.state == BookCollectionViewCellStateNormal) {
-        [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self.viewModel.bookList[indexPath.row]];
+        [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:((Book *)self.viewModel.bookList[indexPath.row]).isbn];
     } else {
         if ([self.selectedBookIndexSet containsIndex:indexPath.row]) {
             [self.selectedBookIndexSet removeIndex:indexPath.row];
@@ -273,8 +273,8 @@ static void * observerContext = &observerContext;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
         DetailViewController *vc = (DetailViewController *)segue.destinationViewController;
-        if ([sender isKindOfClass:[Book class]]) {
-            vc.viewModel.book = sender;
+        if ([sender isKindOfClass:[NSString class]]) {
+            vc.viewModel.currentISBN = sender;
         }
     }
 }

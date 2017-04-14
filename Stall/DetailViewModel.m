@@ -31,6 +31,11 @@
     return s;
 }
 
+- (void)setCurrentISBN:(NSString *)currentISBN {
+    _currentISBN = currentISBN;
+    self.book = [Book MR_findFirstByAttribute:@"isbn" withValue:currentISBN];
+}
+
 - (NSString *)getPageCountString {
     return [NSString stringWithFormat:@"%lld", self.book.pages];
 }
