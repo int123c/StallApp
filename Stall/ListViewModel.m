@@ -19,15 +19,17 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
 }
 
 - (void)loadData {
-    self.bookList = [[Book MR_findAll] mutableCopy];
+    self.bookList = [[Book MR_findAllSortedBy:@"instockDate" ascending:false] mutableCopy];
     if (self.bookList == NULL) { self.bookList = [NSMutableArray new]; }
     NSLog(@"%lu book found", (unsigned long)self.bookList.count);
 }
 
 - (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
-    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
-        Book *b = [self.bookList objectAtIndex:idx];
-        [b MR_deleteEntity];
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *context) {
+        [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
+            Book *b = [self.bookList objectAtIndex:idx];
+            [b MR_deleteEntityInContext:context];
+        }];
     }];
     [self.bookList removeObjectsAtIndexes:indexSet];
 }
