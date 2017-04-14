@@ -35,7 +35,7 @@
     self.bookView = [BookView new];
     [self.contentView addSubview:self.bookView];
     self.bookView.translatesAutoresizingMaskIntoConstraints = NO;
-    [[self.bookView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:40] setActive:YES];
+    [[self.bookView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:20] setActive:YES];
     [[self.bookView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:40] setActive:YES];
     [[self.bookView.widthAnchor constraintEqualToConstant:200] setActive:YES];
     [[self.bookView.heightAnchor constraintEqualToConstant:200] setActive:YES];
@@ -45,10 +45,10 @@
 }
 
 - (void)animateIn {
-    [UIView animateWithDuration:0.6 animations:^(){
+    [UIView animateWithDuration:0.4 animations:^(){
         self.backdrop.transform = CGAffineTransformIdentity;
     }];
-    [UIView animateWithDuration:0.6 delay:0.2 options:0 animations:^() {
+    [UIView animateWithDuration:0.4 delay:0.1 options:0 animations:^() {
         self.bookView.transform = CGAffineTransformIdentity;
     } completion:NULL];
 }

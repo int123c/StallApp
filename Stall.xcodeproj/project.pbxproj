@@ -195,12 +195,12 @@
 		1368FFC51E9A268C005ADA05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				133713351E9CD3FE006C23B4 /* Buttons */,
 				1337131C1E9CC297006C23B4 /* Storyboards */,
 				133713191E9CC291006C23B4 /* STNavigationBar.h */,
 				1337131A1E9CC291006C23B4 /* STNavigationBar.m */,
 				133713361E9CD41F006C23B4 /* BookCollectionViewCell.h */,
 				133713371E9CD41F006C23B4 /* BookCollectionViewCell.m */,
-				133713351E9CD3FE006C23B4 /* Buttons */,
 				1337133C1E9CD456006C23B4 /* BookCoverTableViewCell.h */,
 				1337133D1E9CD456006C23B4 /* BookCoverTableViewCell.m */,
 				133713451E9CD47D006C23B4 /* BookView.h */,
