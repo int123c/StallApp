@@ -25,9 +25,11 @@ NSString * const ITEM_CHANGED = @"ITEM_CHANGED";
 }
 
 - (void)removeBooksAtIndexSet:(NSIndexSet *)indexSet {
-    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
-        Book *b = [self.bookList objectAtIndex:idx];
-        [b MR_deleteEntity];
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *context) {
+        [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
+            Book *b = [self.bookList objectAtIndex:idx];
+            [b MR_deleteEntityInContext:context];
+        }];
     }];
     [self.bookList removeObjectsAtIndexes:indexSet];
 }
