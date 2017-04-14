@@ -49,7 +49,6 @@
 
     UITableViewCell *ratingCell = [UITableViewCell formCellWithTitle:@"Rating"
                                                                value:self.viewModel.getRatingString];
-    
     UITableViewCell *publisherCell = [UITableViewCell formCellWithTitle:@"Publisher"
                                                                   value:self.viewModel.book.publisher];
     UITableViewCell *pubdateCell = [UITableViewCell formCellWithTitle:@"Publish Date"

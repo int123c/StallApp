@@ -12,6 +12,7 @@
 @interface DetailViewModel : NSObject
 
 @property (nonatomic, strong) Book * book;
+@property (nonatomic, strong) NSString *currentISBN;
 
 - (NSString *)getPubdateString;
 - (NSString *)getRatingString;

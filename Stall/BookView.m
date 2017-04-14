@@ -61,7 +61,8 @@ static void * observerContext = &observerContext;
     
     self.reflectionLayer = [CAGradientLayer new];
     self.reflectionLayer.frame = CGRectZero;
-    self.reflectionLayer.colors = @[(__bridge id)[[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.18] CGColor], (__bridge id)[[UIColor colorWithWhite:1 alpha:0.3] CGColor]];
+    self.reflectionLayer.colors = @[(__bridge id)[[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.18] CGColor],
+                                    (__bridge id)[[UIColor colorWithWhite:1 alpha:0.3] CGColor]];
     self.reflectionLayer.startPoint = CGPointMake(0, 0.5);
     self.reflectionLayer.endPoint = CGPointMake(1, 0.3);
     [self.bookLayer addSublayer:self.reflectionLayer];
@@ -78,14 +79,16 @@ static void * observerContext = &observerContext;
     
     self.darkenLayer = [CAGradientLayer new];
     self.darkenLayer.frame = CGRectZero;
-    self.darkenLayer.colors = @[(__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.1] CGColor], (__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.24] CGColor]];
+    self.darkenLayer.colors = @[(__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.1] CGColor],
+                                (__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.24] CGColor]];
     self.darkenLayer.startPoint = CGPointMake(0, 0.5);
     self.darkenLayer.endPoint = CGPointMake(1, 0.5);
     [self.bookLayer addSublayer:self.darkenLayer];
     
     self.innerShadowLayer = [CAGradientLayer new];
     self.innerShadowLayer.frame = CGRectZero;
-    self.innerShadowLayer.colors = @[(__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0] CGColor], (__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.1] CGColor]];
+    self.innerShadowLayer.colors = @[(__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0] CGColor],
+                                     (__bridge id)[[[UIColor blackColor] colorWithAlphaComponent:0.1] CGColor]];
     self.innerShadowLayer.startPoint = CGPointMake(0.5, 0);
     self.innerShadowLayer.endPoint = CGPointMake(0.5, 1);
     [self.bookLayer addSublayer:self.innerShadowLayer];
